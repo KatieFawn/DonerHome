@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- res/drawable/rounded_rectangle_background.xml -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="#F4F0F0" /> <!-- Цвет фона (gray) -->
+    <corners android:radius="35dp" /> <!-- Радиус скругления углов -->
+</shape>
