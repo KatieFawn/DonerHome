@@ -1,6 +1,7 @@
 package com.jiromo5.donerhome.activities;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
 import com.jiromo5.donerhome.R;
@@ -61,6 +62,8 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        Log.i("LoginActivity", "Login activity is open !");
 
         // Initialize the input fields and buttons
         loginField = findViewById(R.id.username);

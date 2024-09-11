@@ -35,6 +35,7 @@ public abstract class AbstractPutRequest {
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(createHTTPs())
                 .build();
+        Log.d("AbstractPutRequest", "Retrofit is init.");
     }
 
     /**
@@ -74,6 +75,7 @@ public abstract class AbstractPutRequest {
             builder.hostnameVerifier((hostname, session) -> true);
 
             okHttpClient = builder.build();
+            Log.d("AbstractPutRequest", "HTTPs is configure.");
             return okHttpClient;
         } catch (NoSuchAlgorithmException | KeyManagementException e) {
             Log.e("PutRequest", "Error creating OkHttpClient: " + e.getMessage(), e);

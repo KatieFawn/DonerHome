@@ -1,6 +1,8 @@
 package com.jiromo5.donerhome.utils;
 
 import android.content.*;
+import android.util.Log;
+
 import androidx.security.crypto.*;
 import java.io.IOException;
 import java.security.GeneralSecurityException;
@@ -27,6 +29,8 @@ public class TokenManager {
                     EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,  // Key encryption scheme.
                     EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM // Value encryption scheme.
             );
+
+            Log.d("TokenManager", "SharedPreferences is configured !");
         } catch (GeneralSecurityException | IOException e) {
             e.printStackTrace();
         }

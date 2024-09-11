@@ -55,7 +55,8 @@ public class SignInClickListener implements View.OnClickListener, DisposableHand
         String login = loginField.getText().toString();
         String password = passwordField.getText().toString();
 
-        if (!login.equals("") && !password.equals("")) {
+        if (!login.equals("") & !password.equals("")) {
+            Log.d("Sign-In", "Login and password receive." + " Login: " + login + " , " + "password: " + password);
             setLoginColor(Color.BLACK);
             setPasswordColor(Color.BLACK);
 
@@ -63,23 +64,28 @@ public class SignInClickListener implements View.OnClickListener, DisposableHand
             loginService = new LoginService(context, loginRequest);
             loginService.fetchNetworkData();
             loginService.handleUserAuthorization();
-        } else if (login.equals("") && password.equals("")) {
+        } else if (login.equals("") & password.equals("")) {
+            Log.d("Sign-In", "User don't entering the login and password.");
             setLoginColor(Color.RED);
             setPasswordColor(Color.RED);
         } else if (login.equals("")) {
+            Log.d("Sign-In", "User don't entering the login.");
             setLoginColor(Color.RED);
             setPasswordColor(Color.BLACK);
         } else if (password.equals("")) {
+            Log.d("Sign-In", "User don't entering the password.");
             setLoginColor(Color.BLACK);
             setPasswordColor(Color.RED);
         } else if (loginService.getStatusRequest()) {
+            Log.e("Sign-In", "Web server is unavailable !");
             invalidLoginMessage.setVisibility(View.VISIBLE);
             setLoginColor(Color.RED);
             setPasswordColor(Color.RED);
         }
 
         if (loginService != null) {
-            if (!loginService.getStatusRequest()) {
+            Log.d("Login-In", "loginService is not initializing !");
+            if (!loginService.getStatusRequest()) {;
                 invalidLoginMessage.setVisibility(View.VISIBLE);
                 invalidLoginMessage.setText("Web server is unavailable !");
             } else {

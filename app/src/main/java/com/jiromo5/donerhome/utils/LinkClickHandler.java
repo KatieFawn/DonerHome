@@ -4,6 +4,7 @@ import android.content.*;
 import android.text.*;
 import android.text.method.LinkMovementMethod;
 import android.text.style.ClickableSpan;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
@@ -45,6 +46,7 @@ public class LinkClickHandler {
         @Override
         public void onClick(@NonNull View view) {
             // Start the next activity when the link is clicked
+            Log.d("LinkClickHandler", "User is click to link !");
             Intent intent = new Intent(context, nextActivity);
             context.startActivity(intent);
         }

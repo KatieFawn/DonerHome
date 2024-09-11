@@ -2,6 +2,7 @@ package com.jiromo5.donerhome.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ImageView;
 import com.jiromo5.donerhome.R;
 import com.jiromo5.donerhome.auth.TokenService;
@@ -21,6 +22,7 @@ public class SplashActivity extends AppCompatActivity {
     private ImageView imageView;
     //Handle a splash screen.
     private SplashHandler splashHandler;
+    //Manage a access to token.
     private TokenService tokenService;
 
     /**
@@ -36,6 +38,8 @@ public class SplashActivity extends AppCompatActivity {
         //initializing screen, configuration, set color and etc.
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main); //Set configuration for screen.
+
+        Log.i("SplashActivity", "Splash activity is open !");
 
         imageView = findViewById(R.id.splashImage); //Set configuration of image.
 
