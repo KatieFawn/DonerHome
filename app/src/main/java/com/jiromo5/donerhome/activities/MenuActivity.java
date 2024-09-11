@@ -1,7 +1,6 @@
 package com.jiromo5.donerhome.activities;
 
 import android.os.Bundle;
-
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 

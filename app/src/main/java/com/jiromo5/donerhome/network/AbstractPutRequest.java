@@ -2,27 +2,20 @@ package com.jiromo5.donerhome.network;
 
 import android.util.Log;
 
-import com.jiromo5.donerhome.auth.AuthService;
-import com.jiromo5.donerhome.data.Tokens;
-import com.jiromo5.donerhome.utils.TokenManager;
-
-import java.security.KeyManagementException;
-import java.security.NoSuchAlgorithmException;
-import java.security.cert.CertificateException;
-import java.security.cert.X509Certificate;
+import java.security.*;
+import java.security.cert.*;
 import java.util.Map;
-
-import javax.net.ssl.SSLContext;
-import javax.net.ssl.SSLSocketFactory;
-import javax.net.ssl.TrustManager;
-import javax.net.ssl.X509TrustManager;
-
+import javax.net.ssl.*;
 import io.reactivex.rxjava3.core.SingleEmitter;
 import okhttp3.OkHttpClient;
-import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+/**
+ * Abstract base class for creating HTTP PUT requests using Retrofit.
+ * <p>This class sets up Retrofit with a secure OkHttpClient configuration and provides
+ * an abstract method for sending requests. It includes SSL/TLS configuration for secure communication.</p>
+ */
 public abstract class AbstractPutRequest {
 
     protected Retrofit retrofit;
@@ -33,27 +26,36 @@ public abstract class AbstractPutRequest {
     private OkHttpClient.Builder builder;
     private OkHttpClient okHttpClient;
 
+    /**
+     * Configures Retrofit with a base URL and a custom OkHttpClient for secure communication.
+     */
     public void buildRequest() {
         retrofit = new Retrofit.Builder()
-                .baseUrl("https://10.0.2.2:8443/") // Замените на ваш адрес сервера
+                .baseUrl("https://10.0.2.2:8443/") // Replace with your server address
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(createHTTPs())
                 .build();
-
     }
 
-    private OkHttpClient createHTTPs(){
+    /**
+     * Creates an OkHttpClient with SSL/TLS configuration for secure communication.
+     * <p>This method initializes the SSL context and sets up the OkHttpClient to use it for secure connections.</p>
+     *
+     * @return Configured OkHttpClient instance.
+     * @throws IllegalStateException if there is an error configuring the OkHttpClient.
+     */
+    private OkHttpClient createHTTPs() {
         try {
             trustManagers = new TrustManager[]{
                     new X509TrustManager() {
                         @Override
                         public void checkClientTrusted(X509Certificate[] x509Certificates, String s) throws CertificateException {
-
+                            // No-op
                         }
 
                         @Override
                         public void checkServerTrusted(X509Certificate[] x509Certificates, String s) throws CertificateException {
-
+                            // No-op
                         }
 
                         @Override
@@ -73,11 +75,18 @@ public abstract class AbstractPutRequest {
 
             okHttpClient = builder.build();
             return okHttpClient;
-        } catch (NoSuchAlgorithmException | KeyManagementException e){
+        } catch (NoSuchAlgorithmException | KeyManagementException e) {
             Log.e("PutRequest", "Error creating OkHttpClient: " + e.getMessage(), e);
             throw new IllegalStateException("Failed to create OkHttpClient due to an error: " + e.getMessage(), e);
         }
     }
 
+    /**
+     * Abstract method for sending a request. Concrete subclasses must implement this method
+     * to handle the specifics of sending a request and processing the response.
+     *
+     * @param emitter The SingleEmitter to emit the result of the request.
+     */
     abstract public void sendRequest(SingleEmitter<Map<String, String>> emitter);
 }
+

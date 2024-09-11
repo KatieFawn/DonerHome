@@ -1,42 +1,64 @@
 package com.jiromo5.donerhome.utils;
 
-import android.content.Context;
-import android.content.SharedPreferences;
-
-import androidx.security.crypto.EncryptedSharedPreferences;
-import androidx.security.crypto.MasterKey;
-import androidx.security.crypto.MasterKeys;
-
+import android.content.*;
+import androidx.security.crypto.*;
 import java.io.IOException;
 import java.security.GeneralSecurityException;
 
+/**
+ * TokenManager is responsible for securely storing and managing authentication tokens
+ * using EncryptedSharedPreferences.
+ */
 public class TokenManager {
 
     private static SharedPreferences sharedPreferences;
 
-    public static void createContainer(Context context){
+    /**
+     * Initializes the EncryptedSharedPreferences container for secure token storage.
+     *
+     * @param context The application context required to create the EncryptedSharedPreferences.
+     */
+    public static void createContainer(Context context) {
         try {
             sharedPreferences = EncryptedSharedPreferences.create(
-                    "secure_prefs",
-                    MasterKeys.getOrCreate(MasterKeys.AES256_GCM_SPEC),
+                    "secure_prefs",  // The name of the shared preferences file.
+                    MasterKeys.getOrCreate(MasterKeys.AES256_GCM_SPEC),  // Secure key generation.
                     context,
-                    EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,
-                    EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM
+                    EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,  // Key encryption scheme.
+                    EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM // Value encryption scheme.
             );
-        } catch (GeneralSecurityException | IOException e){
+        } catch (GeneralSecurityException | IOException e) {
             e.printStackTrace();
         }
     }
 
-    public static void saveToken(String key, String token){
+    /**
+     * Saves a token in the EncryptedSharedPreferences.
+     *
+     * @param key The key under which the token will be stored.
+     * @param token The authentication token to be stored.
+     */
+    public static void saveToken(String key, String token) {
         sharedPreferences.edit().putString(key, token).apply();
     }
 
-    public static String getToken(String key){
+    /**
+     * Retrieves a token from the EncryptedSharedPreferences.
+     *
+     * @param key The key corresponding to the token to retrieve.
+     * @return The token if it exists, otherwise null.
+     */
+    public static String getToken(String key) {
         return sharedPreferences.getString(key, null);
     }
 
-    public static void remove(String key){
+    /**
+     * Removes a token from the EncryptedSharedPreferences.
+     *
+     * @param key The key corresponding to the token to remove.
+     */
+    public static void remove(String key) {
         sharedPreferences.edit().remove(key).apply();
     }
 }
+

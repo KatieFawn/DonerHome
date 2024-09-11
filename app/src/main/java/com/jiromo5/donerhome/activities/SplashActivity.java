@@ -21,7 +21,7 @@ public class SplashActivity extends AppCompatActivity {
     private ImageView imageView;
     //Handle a splash screen.
     private SplashHandler splashHandler;
-    private TokenService initService;
+    private TokenService tokenService;
 
     /**
      * Invoke when a application is running.
@@ -45,11 +45,21 @@ public class SplashActivity extends AppCompatActivity {
         splashHandler.setLogoOnScreen(imageView);
 
         TokenManager.createContainer(this);
-        //TokenManager.saveToken("refresh_token", "DoiWOhqoZj_TAAnidauVz9mlbzhpG8f8SK3RGtFfvymoPcR52DHF4JGh3pjk-8sJj7y0_flsFeImd7Y-L98xxQ==");
+        //TokenManager.saveToken("refresh_token", "SPSbUdqu6gAJngpmV_gT0s48ZMexO2XYVA89WqeuSpKKL4PRwi5g0glR_0uscCjIhgaFyKk-N4Fuc6C4KUwmlg==");
 
-        initService = new TokenService(this);
-        initService.fetchNetworkData();
-        initService.handleUserAuthorization();
+        tokenService = new TokenService(this);
+        tokenService.fetchNetworkData();
+        tokenService.handleUserAuthorization();
 
+    }
+
+    /**
+     * Invoke when activity is destroy, here dispose a object and resources.
+     */
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        tokenService.dispose();
     }
 }

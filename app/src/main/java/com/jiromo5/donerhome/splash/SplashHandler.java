@@ -1,15 +1,10 @@
 package com.jiromo5.donerhome.splash;
 
 import android.content.Context;
-import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.os.Handler;
+import android.graphics.*;
 import android.util.Log;
 import android.widget.ImageView;
-import com.jiromo5.donerhome.activities.LoginActivity;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.core.Observable;
 import io.reactivex.rxjava3.disposables.Disposable;
@@ -86,17 +81,6 @@ public class SplashHandler {
                 emitter.onError(e);
             }
         });
-    }
-
-    /**
-     * Starts the splash screen display for the specified duration,
-     * then transitions to the loginActivity.
-     */
-
-    public void replaceActivity(){
-        Intent intent = new Intent(context, LoginActivity.class);
-        Log.v("Splash", "Replace activity to LoginActivity.");
-        context.startActivity(intent);
     }
 
 }
