@@ -1,6 +1,8 @@
 package com.jiromo5.donerhome.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageView;
@@ -44,7 +46,7 @@ public class SplashActivity extends AppCompatActivity {
         imageView = findViewById(R.id.splashImage); //Set configuration of image.
 
         //Create object of class SplashHandler.
-        splashHandler = new SplashHandler(this);
+        splashHandler = new SplashHandler(this.getAssets());
         //Load and draw image on screen.
         splashHandler.setLogoOnScreen(imageView);
 

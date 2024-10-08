@@ -42,6 +42,26 @@ public class LoginData {
     public String getPassword() {
         return password;
     }
+
+    /**
+     * Set the users email address.
+     *
+     * @param email
+     */
+
+    public void setEmail(String email){
+        this.email = email;
+    }
+
+    /**
+     * Set the users password.
+     *
+     * @param password
+     */
+
+    public void setPassword(String password){
+        this.password = password;
+    }
 }
 
 

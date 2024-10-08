@@ -1,6 +1,7 @@
 package com.jiromo5.donerhome.splash;
 
 import android.content.Context;
+import android.content.res.AssetManager;
 import android.graphics.*;
 import android.util.Log;
 import android.widget.ImageView;
@@ -23,9 +24,9 @@ public class SplashHandler {
     //Need to manage concurrent threads and perform operations internal it.
     private Disposable disposable;
     //Context reflect specified activity, SplashActivity.
-    private Context context;
+    private AssetManager context;
 
-    public SplashHandler(Context context){
+    public SplashHandler(AssetManager context){
         this.context = context;
     }
 
@@ -70,7 +71,7 @@ public class SplashHandler {
         return Observable.create( emitter -> {
             try {
                 //Open stream.
-                InputStream inputStream = context.getAssets().open(fileName);
+                InputStream inputStream = context.open(fileName);
                 //Decode stream for read image.
                 Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
                 //Next operation.
@@ -81,6 +82,10 @@ public class SplashHandler {
                 emitter.onError(e);
             }
         });
+    }
+
+    public Observable<Bitmap> getSplashImageObservable(String fileName){
+        return readImageFromAssets(fileName);
     }
 
 }

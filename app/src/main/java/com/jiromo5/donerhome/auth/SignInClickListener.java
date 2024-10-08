@@ -84,7 +84,7 @@ public class SignInClickListener implements View.OnClickListener, DisposableHand
         }
 
         if (loginService != null) {
-            Log.d("Login-In", "loginService is not initializing !");
+            Log.d("Log-In", "loginService is initializing !");
             if (!loginService.getStatusRequest()) {;
                 invalidLoginMessage.setVisibility(View.VISIBLE);
                 invalidLoginMessage.setText("Web server is unavailable !");

@@ -45,7 +45,6 @@ public class TokenService implements RequestService, DisposableHandler {
     @Override
     public void fetchNetworkData() {
         networkDataSingle = Single.create(emitter -> {
-            tokenPutRequest = new TokenPutRequest();
             tokenPutRequest.buildRequest();
             tokenPutRequest.sendRequest(emitter);
         });
@@ -68,12 +67,12 @@ public class TokenService implements RequestService, DisposableHandler {
                         replaceActivity(MenuActivity.class);
                     } else {
                         Log.i("TokenService", "Change activity to LoginActivity.class");
-                        replaceActivity(LoginActivity.class);
+                        replaceActivity(MenuActivity.class);
                     }
                 }, throwable -> {
                     // Handles errors during request.
                     Log.w("TokenService", "Token is not validated or does not exist.");
-                    replaceActivity(LoginActivity.class);
+                    replaceActivity(MenuActivity.class);
                 });
     }
 
@@ -95,6 +94,10 @@ public class TokenService implements RequestService, DisposableHandler {
         if (disposable != null && !disposable.isDisposed()) {
             disposable.dispose();
         }
+    }
+
+    public void setTokenPutRequest(TokenPutRequest tokenPutRequest){
+        this.tokenPutRequest = tokenPutRequest;
     }
 }
 

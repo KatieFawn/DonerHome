@@ -48,7 +48,6 @@ public class LoginService implements RequestService, DisposableHandler {
     @Override
     public void fetchNetworkData() {
         networkDataSingle = Single.create(emitter -> {
-            authPutRequest = new AuthFormPutRequest(loginRequest);
             authPutRequest.buildRequest();
             authPutRequest.sendRequest(emitter);
         });
@@ -100,6 +99,14 @@ public class LoginService implements RequestService, DisposableHandler {
         }
     }
 
+    public Single<Map<String, String>> getNetworkDataSingle(){
+        return networkDataSingle;
+    }
+
+    public void setNetworkDataSingle(Single<Map<String, String>> single){
+        this.networkDataSingle = single;
+    }
+
     /**
      * Returns the status of the last request.
      *
@@ -107,5 +114,19 @@ public class LoginService implements RequestService, DisposableHandler {
      */
     public boolean getStatusRequest() {
         return statusRequest;
+    }
+
+    /**
+     * Returns the status of the last request.
+     *
+     * @param status well be true if there was an issue with the request, false otherwise.
+     */
+
+    public void setStatusRequest(boolean status){
+        this.statusRequest = status;
+    }
+
+    public void setAuthPutRequest(AuthFormPutRequest authFormPutRequest){
+        this.authPutRequest = authFormPutRequest;
     }
 }
