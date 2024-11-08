@@ -2,9 +2,9 @@ package com.jiromo5.donerhome.auth;
 
 import android.content.*;
 import android.util.Log;
-import com.jiromo5.donerhome.activities.MenuActivity;
+import com.jiromo5.donerhome.activities.menu.MenuActivity;
 import com.jiromo5.donerhome.common.DisposableHandler;
-import com.jiromo5.donerhome.data.LoginData;
+import com.jiromo5.donerhome.data.dto.LoginData;
 import com.jiromo5.donerhome.network.AuthFormPutRequest;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;

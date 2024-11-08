@@ -1,6 +1,8 @@
 package com.jiromo5.donerhome.auth;
 
-import com.jiromo5.donerhome.data.*;
+import com.jiromo5.donerhome.data.dto.LoginData;
+import com.jiromo5.donerhome.data.dto.Tokens;
+
 import java.util.Map;
 import retrofit2.Call;
 import retrofit2.http.*;

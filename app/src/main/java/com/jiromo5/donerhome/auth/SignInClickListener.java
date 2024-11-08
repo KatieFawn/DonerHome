@@ -8,9 +8,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.jiromo5.donerhome.activities.LoginActivity;
 import com.jiromo5.donerhome.common.DisposableHandler;
-import com.jiromo5.donerhome.data.LoginData;
+import com.jiromo5.donerhome.data.dto.LoginData;
 
 
 /**

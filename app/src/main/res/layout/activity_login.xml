@@ -5,7 +5,7 @@
     android:id="@+id/auth1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.LoginActivity">
+    tools:context=".activities.auth.LoginActivity">
 
     <View
         android:id="@+id/background"
@@ -16,7 +16,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:background="@drawable/rounded_rectangle_background" />
+        android:background="@drawable/rounded_rectangle_background"/>
+
+    <ImageButton
+        android:id="@+id/back_button"
+        android:layout_width="18dp"
+        android:layout_height="32dp"
+        android:src="@drawable/back_selector"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:layout_marginTop="25dp"
+        android:layout_marginStart="25dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <EditText
         android:id="@+id/username"

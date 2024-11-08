@@ -1,4 +1,4 @@
-package com.jiromo5.donerhome.data;
+package com.jiromo5.donerhome.data.dto;
 
 /**
  * Represents a pair of access and refresh tokens used for authentication.

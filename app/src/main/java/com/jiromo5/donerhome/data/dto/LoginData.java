@@ -1,4 +1,4 @@
-package com.jiromo5.donerhome.data;
+package com.jiromo5.donerhome.data.dto;
 
 /**
  * Represents login credentials including email and password.

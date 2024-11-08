@@ -1,4 +1,4 @@
-package com.jiromo5.donerhome.utils;
+package com.jiromo5.donerhome.auth;
 
 import android.content.*;
 import android.text.*;

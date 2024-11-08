@@ -4,10 +4,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 
-import com.jiromo5.donerhome.activities.LoginActivity;
-import com.jiromo5.donerhome.activities.MenuActivity;
+import com.jiromo5.donerhome.activities.menu.MenuActivity;
 import com.jiromo5.donerhome.common.DisposableHandler;
-import com.jiromo5.donerhome.data.UserData;
+import com.jiromo5.donerhome.data.state.UserData;
 import com.jiromo5.donerhome.network.TokenPutRequest;
 
 import java.util.Map;
@@ -28,6 +27,8 @@ public class TokenService implements RequestService, DisposableHandler {
     private Single<Map<String, String>> networkDataSingle;
     private Context context;
     private TokenPutRequest tokenPutRequest;
+
+    public static boolean isAuthorize;
 
     /**
      * Constructs a TokenService with the specified context.
@@ -64,14 +65,17 @@ public class TokenService implements RequestService, DisposableHandler {
                     // Handles successful response based on user data.
                     if (UserData.email != null && UserData.role != null) {
                         Log.i("TokenService", "Change activity to MenuActivity.class");
+                        isAuthorize = true;
                         replaceActivity(MenuActivity.class);
                     } else {
                         Log.i("TokenService", "Change activity to LoginActivity.class");
+                        isAuthorize = false;
                         replaceActivity(MenuActivity.class);
                     }
                 }, throwable -> {
                     // Handles errors during request.
                     Log.w("TokenService", "Token is not validated or does not exist.");
+                    isAuthorize = false;
                     replaceActivity(MenuActivity.class);
                 });
     }

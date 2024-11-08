@@ -1,4 +1,4 @@
-package com.jiromo5.donerhome.splash;
+package com.jiromo5.donerhome.intro;
 
 import static org.mockito.Mockito.when;
 import android.content.res.AssetManager;

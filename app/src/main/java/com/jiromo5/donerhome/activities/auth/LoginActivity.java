@@ -1,11 +1,12 @@
-package com.jiromo5.donerhome.activities;
+package com.jiromo5.donerhome.activities.auth;
 
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
 import com.jiromo5.donerhome.R;
-import com.jiromo5.donerhome.utils.LinkClickHandler;
+import com.jiromo5.donerhome.auth.BackClickListener;
+import com.jiromo5.donerhome.auth.LinkClickHandler;
 import com.jiromo5.donerhome.auth.SignInClickListener;
 
 /**
@@ -47,6 +48,7 @@ public class LoginActivity extends AppCompatActivity {
     private TextView signUpTextView;
     // Field for sign-in.
     private Button signInButton;
+    private ImageButton backButton;
 
     // Configure a settings for link to open activity registration.
     private LinkClickHandler signUpLink;
@@ -72,7 +74,9 @@ public class LoginActivity extends AppCompatActivity {
         forgotPassword = findViewById(R.id.forgot_password);
         signInButton = findViewById(R.id.loginButton);
         signUpTextView = findViewById(R.id.signUpLink);
+        backButton = findViewById(R.id.back_button);
 
+        setBackClickListener();
         setLinkForPassword(); // Set up the link for password recovery
         setLinkForSignUp(); // Set up the link for user registration
         signIn(); // Set up the sign-in button click listener
@@ -113,6 +117,11 @@ public class LoginActivity extends AppCompatActivity {
         // Initialize the click listener for the sign-in button
         SignInClickListener clickListener = new SignInClickListener(this, loginField, passwordField, invalidLoginMessage);
         signInButton.setOnClickListener(clickListener); // Set the click listener to handle sign-in
+    }
+
+    private void setBackClickListener(){
+        BackClickListener backClickListener = new BackClickListener(this);
+        backButton.setOnClickListener(backClickListener);
     }
 
 }

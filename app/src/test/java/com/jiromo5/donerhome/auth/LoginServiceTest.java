@@ -8,7 +8,7 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.withSettings;
 import android.util.Log;
-import com.jiromo5.donerhome.data.LoginData;
+import com.jiromo5.donerhome.data.dto.LoginData;
 import com.jiromo5.donerhome.network.AuthFormPutRequest;
 import org.junit.Before;
 import org.junit.Test;
