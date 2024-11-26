@@ -13,8 +13,7 @@ public class UserData {
     public static String email = "test@mail.com";
     //The user's role. Initialized to null and can be set to a valid role.
     public static String role = "USER";
-    public static String firstName = "testFirstName";
+    public static String firstName = "Player";
     public static String lastName = "testLastName";
-    public static String birthDay = "10.10.1999";
     public static String phoneNumber = "99999999999";
 }

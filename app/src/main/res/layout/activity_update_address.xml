@@ -2,10 +2,10 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/user_info"
+    android:id="@+id/update_address"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.menu.profile.UserInfoActivity">
+    tools:context=".activities.menu.profile.UpdateAddressActivity">
 
     <View
         android:id="@+id/lineView"
@@ -63,7 +63,7 @@
         app:layout_constraintStart_toEndOf="@id/cart_button"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- User data. -->
+    <!-- Addresses view  -->
 
     <ImageButton
         android:id="@+id/back_button"
@@ -80,7 +80,7 @@
         android:id="@+id/welcome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Information"
+        android:text="Update data"
         android:layout_marginTop="50dp"
         android:textSize="36sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -89,44 +89,29 @@
         android:scaleType="centerInside"
         app:layout_constraintVertical_bias="0.2"/>
 
-    <EditText
-        android:id="@+id/first_name"
-        android:layout_width="160dp"
-        android:layout_height="50dp"
-        android:layout_centerInParent="true"
-        android:hint="First name"
+    <ImageButton
+        android:id="@+id/save_address"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:src="@drawable/save_address_selector"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.069"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.176" />
+        app:layout_constraintVertical_bias="0.8" />
 
     <EditText
-        android:id="@+id/last_name"
+        android:id="@+id/address_name"
         android:layout_width="160dp"
         android:layout_height="50dp"
         android:layout_centerInParent="true"
-        android:hint="Last name"
+        android:hint="Address name"
+        android:layout_marginStart="25dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.93"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.176" />
-
-    <EditText
-        android:id="@+id/email"
-        android:layout_width="160dp"
-        android:layout_height="50dp"
-        android:layout_centerInParent="true"
-        android:hint="Email"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.063"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.281" />
+        app:layout_constraintVertical_bias="0.3" />
 
     <EditText
         android:id="@+id/city"
@@ -134,12 +119,11 @@
         android:layout_height="50dp"
         android:layout_centerInParent="true"
         android:hint="City"
+        android:layout_marginStart="25dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.063"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.396" />
+        app:layout_constraintVertical_bias="0.4" />
 
     <EditText
         android:id="@+id/street"
@@ -147,12 +131,11 @@
         android:layout_height="50dp"
         android:layout_centerInParent="true"
         android:hint="Street"
+        android:layout_marginEnd="25dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.928"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.396" />
+        app:layout_constraintVertical_bias="0.4" />
 
     <EditText
         android:id="@+id/build"
@@ -160,12 +143,11 @@
         android:layout_height="50dp"
         android:layout_centerInParent="true"
         android:hint="Build"
+        android:layout_marginStart="25dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.075"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.522" />
+        app:layout_constraintVertical_bias="0.5" />
 
     <EditText
         android:id="@+id/apartment"
@@ -173,12 +155,11 @@
         android:layout_height="50dp"
         android:layout_centerInParent="true"
         android:hint="Apartment"
+        android:layout_marginEnd="25dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.936"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.522" />
+        app:layout_constraintVertical_bias="0.5" />
 
     <EditText
         android:id="@+id/postal_code"
@@ -186,37 +167,11 @@
         android:layout_height="50dp"
         android:layout_centerInParent="true"
         android:hint="Postal Code"
+        android:layout_marginStart="25dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.075"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.643" />
+        app:layout_constraintVertical_bias="0.6" />
 
-    <EditText
-        android:id="@+id/phone_number"
-        android:layout_width="160dp"
-        android:layout_height="50dp"
-        android:layout_centerInParent="true"
-        android:hint="Phone number"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.936"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.281" />
-
-    <ImageButton
-        android:id="@+id/change_password"
-        android:layout_width="200dp"
-        android:layout_height="50dp"
-        android:src="@drawable/change_password_selector"
-        android:background="?attr/selectableItemBackgroundBorderless"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.075"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.754" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

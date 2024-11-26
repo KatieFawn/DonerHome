@@ -6,20 +6,20 @@ import android.view.View;
 
 import com.jiromo5.donerhome.activities.menu.profile.UserInfoActivity;
 
-public class UserInfoListener implements View.OnClickListener {
+public class UserInfoButtonListener implements View.OnClickListener {
 
     private Context context;
 
-    public UserInfoListener(Context context) {
+    public UserInfoButtonListener(Context context){
         this.context = context;
     }
 
     @Override
     public void onClick(View view) {
-        replaceActivity();
+        replaceContext();
     }
 
-    private void replaceActivity(){
+    private void replaceContext(){
         Intent intent = new Intent(context, UserInfoActivity.class);
         context.startActivity(intent);
     }

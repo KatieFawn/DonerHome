@@ -44,6 +44,18 @@
                 android:exported="true">
             </activity>
 
+            <activity android:name=".activities.menu.profile.AddressesActivity"
+                android:exported="true">
+            </activity>
+
+                <activity android:name=".activities.menu.profile.UpdateAddressActivity"
+                    android:exported="true">
+                </activity>
+
+            <activity android:name=".activities.menu.profile.FeedBackActivity"
+                android:exported="true">
+            </activity>
+
         <activity android:name=".activities.auth.LoginActivity"
             android:exported="true">
         </activity>

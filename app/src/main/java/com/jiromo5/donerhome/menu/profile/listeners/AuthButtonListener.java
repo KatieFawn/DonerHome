@@ -6,11 +6,11 @@ import android.view.View;
 
 import com.jiromo5.donerhome.activities.auth.LoginActivity;
 
-public class AuthListener implements View.OnClickListener {
+public class AuthButtonListener implements View.OnClickListener {
 
     private Context context;
 
-    public AuthListener(Context context){
+    public AuthButtonListener(Context context){
         this.context = context;
     }
 
