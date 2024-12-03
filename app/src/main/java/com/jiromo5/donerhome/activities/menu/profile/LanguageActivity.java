@@ -15,51 +15,46 @@ import com.jiromo5.donerhome.menu.navigation.listeners.DealsClickListener;
 import com.jiromo5.donerhome.menu.navigation.listeners.HomeClickListener;
 import com.jiromo5.donerhome.menu.navigation.listeners.ProfileClickListener;
 import com.jiromo5.donerhome.menu.profile.AddressManager;
+import com.jiromo5.donerhome.menu.profile.LanguageManager;
 import com.jiromo5.donerhome.menu.profile.listeners.AddAddressListener;
-import com.jiromo5.donerhome.menu.profile.listeners.LanguageListener;
 import com.jiromo5.donerhome.menu.profile.listeners.RemoveAddressListener;
+import com.jiromo5.donerhome.menu.profile.listeners.SelectEnglishListener;
+import com.jiromo5.donerhome.menu.profile.listeners.SelectGermanyListener;
+import com.jiromo5.donerhome.menu.profile.listeners.SelectPolandListener;
 
-public class SettingsActivity extends AppCompatActivity {
+public class LanguageActivity extends AppCompatActivity {
 
     private ImageButton backButton;
 
-    private ImageButton homeButton;
-    private ImageButton dealsButton;
-    private ImageButton cartsButton;
-    private ImageButton profileButton;
+    private ImageButton englishButton;
+    private ImageButton germanyButton;
+    private ImageButton polandButton;
 
-    private ImageButton languageButton;
-
-    private NavigationBarController navigationBarController;
+    private LanguageManager languageManager;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_settings);
+        setContentView(R.layout.activity_language);
         overridePendingTransition(0,0);
-
-        homeButton = findViewById(R.id.home_button);
-        dealsButton = findViewById(R.id.deals_button);
-        cartsButton = findViewById(R.id.cart_button);
-        profileButton = findViewById(R.id.profile_button);
 
         backButton = findViewById(R.id.back_button);
 
-        languageButton = findViewById(R.id.language);
+        englishButton = findViewById(R.id.english);
+        germanyButton = findViewById(R.id.german);
+        polandButton = findViewById(R.id.poland);
 
         setButtonClickListeners();
 
-        navigationBarController = new NavigationBarController(homeButton, dealsButton, cartsButton, profileButton);
-        navigationBarController.updateButtonState();
+        languageManager = new LanguageManager(englishButton, germanyButton, polandButton);
+        languageManager.updateState();
     }
 
     private void setButtonClickListeners(){
-        homeButton.setOnClickListener(new HomeClickListener(this));
-        dealsButton.setOnClickListener(new DealsClickListener(this));
-        cartsButton.setOnClickListener(new CartsClickListener(this));
-        profileButton.setOnClickListener(new ProfileClickListener(this));
-
         backButton.setOnClickListener(new BackClickListener(this));
-        languageButton.setOnClickListener(new LanguageListener(this));
+
+        englishButton.setOnClickListener(new SelectEnglishListener(this));
+        germanyButton.setOnClickListener(new SelectGermanyListener(this));
+        polandButton.setOnClickListener(new SelectPolandListener(this));
     }
 }

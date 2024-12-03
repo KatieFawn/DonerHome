@@ -16,6 +16,8 @@ import com.jiromo5.donerhome.menu.navigation.listeners.HomeClickListener;
 import com.jiromo5.donerhome.menu.navigation.listeners.ProfileClickListener;
 import com.jiromo5.donerhome.menu.profile.listeners.AddressesButtonListener;
 import com.jiromo5.donerhome.menu.profile.listeners.FeedBackListener;
+import com.jiromo5.donerhome.menu.profile.listeners.LogOutListener;
+import com.jiromo5.donerhome.menu.profile.listeners.SettingsListener;
 import com.jiromo5.donerhome.menu.profile.listeners.UserInfoButtonListener;
 
 public class ProfileActivity extends AppCompatActivity {
@@ -28,6 +30,8 @@ public class ProfileActivity extends AppCompatActivity {
     private ImageButton userInfo;
     private ImageButton addressesButton;
     private ImageButton feedbackButton;
+    private ImageButton settingsButton;
+    private ImageButton logoutButton;
     private TextView welcome;
 
     private NavigationBarController navigationBarController;
@@ -53,7 +57,8 @@ public class ProfileActivity extends AppCompatActivity {
         userInfo = findViewById(R.id.user_info);
         addressesButton = findViewById(R.id.addresses);
         feedbackButton = findViewById(R.id.feedback);
-
+        settingsButton = findViewById(R.id.settings);
+        logoutButton = findViewById(R.id.exit);
 
 
         profileEventHandler();
@@ -75,5 +80,7 @@ public class ProfileActivity extends AppCompatActivity {
         userInfo.setOnClickListener(new UserInfoButtonListener(this));
         addressesButton.setOnClickListener(new AddressesButtonListener(this));
         feedbackButton.setOnClickListener(new FeedBackListener(this));
+        settingsButton.setOnClickListener(new SettingsListener(this));
+        logoutButton.setOnClickListener(new LogOutListener(this));
     }
 }

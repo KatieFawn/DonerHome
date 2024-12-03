@@ -16,4 +16,5 @@ public class UserData {
     public static String firstName = "Player";
     public static String lastName = "testLastName";
     public static String phoneNumber = "99999999999";
+    public static String language = "english";
 }

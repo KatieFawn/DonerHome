@@ -56,6 +56,14 @@
                 android:exported="true">
             </activity>
 
+            <activity android:name=".activities.menu.profile.SettingsActivity"
+                android:exported="true">
+            </activity>
+
+                <activity android:name=".activities.menu.profile.LanguageActivity"
+                    android:exported="true">
+                </activity>
+
         <activity android:name=".activities.auth.LoginActivity"
             android:exported="true">
         </activity>
