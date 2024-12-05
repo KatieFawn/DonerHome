@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.view.View;
 
-import com.jiromo5.donerhome.activities.menu.CartActivity;
+import com.jiromo5.donerhome.activities.menu.shopping.CartActivity;
 import com.jiromo5.donerhome.menu.state.ButtonColorStateManager;
 
 public class CartsClickListener implements View.OnClickListener {

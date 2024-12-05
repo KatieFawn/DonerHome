@@ -1,4 +1,4 @@
-package com.jiromo5.donerhome.activities.menu;
+package com.jiromo5.donerhome.activities.menu.shopping;
 
 import android.os.Bundle;
 import android.widget.ImageButton;
