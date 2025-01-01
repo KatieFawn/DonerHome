@@ -5,7 +5,7 @@
     android:id="@+id/cart"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.menu.shopping.CartActivity">
+    tools:context=".activities.main.shopping.CartActivity">
 
     <View
         android:id="@+id/lineView"

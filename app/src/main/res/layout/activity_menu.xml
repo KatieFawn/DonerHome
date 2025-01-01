@@ -5,7 +5,7 @@
     android:id="@+id/menu"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.menu.MenuActivity">
+    tools:context=".activities.main.menu.MenuActivity">
 
     <TextView
         android:id="@+id/menuText"
@@ -29,7 +29,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintVertical_bias="0.9"/>
+        app:layout_constraintVertical_bias="0.875"/>
 
     <!-- Navigation bar -->
 

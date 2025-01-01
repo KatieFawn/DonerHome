@@ -5,7 +5,7 @@
     android:id="@+id/profile_unauth"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.menu.profile.ProfileActivity">
+    tools:context=".activities.main.profile.ProfileActivity">
 
     <View
         android:id="@+id/lineView"

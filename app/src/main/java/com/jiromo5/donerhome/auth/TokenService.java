@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 
-import com.jiromo5.donerhome.activities.menu.MenuActivity;
+import com.jiromo5.donerhome.activities.main.menu.MenuActivity;
 import com.jiromo5.donerhome.common.DisposableHandler;
 import com.jiromo5.donerhome.data.state.UserData;
 import com.jiromo5.donerhome.network.TokenPutRequest;

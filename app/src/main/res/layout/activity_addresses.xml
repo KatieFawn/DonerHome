@@ -5,7 +5,7 @@
     android:id="@+id/addresses"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.menu.profile.ProfileActivity">
+    tools:context=".activities.main.profile.ProfileActivity">
 
     <View
         android:id="@+id/lineView"
@@ -94,7 +94,7 @@
         android:layout_width="200dp"
         android:layout_height="60dp"
         android:background="?attr/selectableItemBackgroundBorderless"
-        android:src="@drawable/add_address_selector"
+        android:src="@drawable/add_button_selector"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

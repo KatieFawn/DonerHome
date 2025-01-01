@@ -5,7 +5,7 @@
     android:id="@+id/feedback"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.menu.profile.FeedBackActivity">
+    tools:context=".activities.main.profile.FeedBackActivity">
 
     <View
         android:id="@+id/lineView"

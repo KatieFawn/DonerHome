@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drink"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.main.menu.DrinkActivity">
+
+    <View
+        android:id="@+id/lineView"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginBottom="50dp"
+        android:background="#C8C3C3"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Drink view  -->
+
+    <ImageButton
+        android:id="@+id/back_button"
+        android:layout_width="26dp"
+        android:layout_height="26dp"
+        android:src="@drawable/back_button"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:layout_marginTop="25dp"
+        android:layout_marginStart="25dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/welcome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="23dp"
+        android:layout_marginStart="75dp"
+        android:text="Drink"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:scaleType="centerInside"
+        android:textStyle="bold"/>
+
+    <View
+        android:id="@+id/line1"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#C8C3C3"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/soda"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintVertical_bias="0.15"/>
+
+    <!-- Первая кнопка -->
+    <ImageButton
+        android:id="@+id/soda"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:src="@drawable/soda_button_up"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/coffee"
+        app:layout_constraintVertical_bias="0.15"/>
+
+    <!-- Вторая кнопка -->
+    <ImageButton
+        android:id="@+id/coffee"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:src="@drawable/coffe_button"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/soda"
+        app:layout_constraintEnd_toStartOf="@id/water"
+        app:layout_constraintVertical_bias="0.15"/>
+
+    <!-- Третья кнопка -->
+    <ImageButton
+        android:id="@+id/water"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:src="@drawable/water_button"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/coffee"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintVertical_bias="0.15"/>
+
+    <View
+        android:id="@+id/line2"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#C8C3C3"
+        app:layout_constraintTop_toBottomOf="@id/water"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintVertical_bias="0.2"/>
+
+    <!-- Choose language -->
+
+    <ScrollView
+        android:id="@+id/drink_list"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="200dp"
+        android:layout_marginBottom="55dp"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:gravity="center_horizontal">
+
+            <!-- Soda -->
+
+            <TextView
+                android:id="@+id/soda_category"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Soda"
+                android:textSize="28sp"
+                android:textStyle="bold"/>
+
+            <ImageButton
+                android:id="@+id/cola"
+                android:layout_width="320dp"
+                android:layout_height="80dp"
+                android:src="@drawable/coca_glass"
+                android:layout_marginTop="6dp"/>
+
+            <ImageButton
+                android:id="@+id/fanta"
+                android:layout_width="320dp"
+                android:layout_height="80dp"
+                android:src="@drawable/fanta_glass"
+                android:layout_marginTop="6dp"/>
+
+            <ImageButton
+                android:id="@+id/sprite"
+                android:layout_width="320dp"
+                android:layout_height="80dp"
+                android:src="@drawable/sprite_glass"
+                android:layout_marginTop="6dp"/>
+
+            <!-- Coffe -->
+
+            <TextView
+                android:id="@+id/coffee_category"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Coffe"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                android:layout_marginTop="20dp"/>
+
+            <ImageButton
+                android:id="@+id/latte"
+                android:layout_width="320dp"
+                android:layout_height="80dp"
+                android:src="@drawable/latte_glass"
+                android:layout_marginTop="6dp"/>
+
+            <ImageButton
+                android:id="@+id/espresso"
+                android:layout_width="320dp"
+                android:layout_height="80dp"
+                android:src="@drawable/espresso_glass"
+                android:layout_marginTop="6dp"/>
+
+            <!-- Coffe -->
+
+            <TextView
+                android:id="@+id/water_category"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Water"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                android:layout_marginTop="20dp"/>
+
+            <ImageButton
+                android:id="@+id/still_water"
+                android:layout_width="320dp"
+                android:layout_height="80dp"
+                android:src="@drawable/stillwater_glass"
+                android:layout_marginTop="6dp"/>
+
+            <ImageButton
+                android:id="@+id/soda_water"
+                android:layout_width="320dp"
+                android:layout_height="80dp"
+                android:src="@drawable/sodawater_glass"
+                android:layout_marginTop="6dp"/>
+
+            <!-- Динамическое пространство -->
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="24dp" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Drink view -->
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

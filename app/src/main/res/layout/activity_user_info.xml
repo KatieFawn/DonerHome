@@ -5,7 +5,7 @@
     android:id="@+id/user_info"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.menu.profile.UserInfoActivity">
+    tools:context=".activities.main.profile.UserInfoActivity">
 
     <View
         android:id="@+id/lineView"

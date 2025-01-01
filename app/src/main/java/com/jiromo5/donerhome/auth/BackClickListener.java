@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.view.View;
 
-import com.jiromo5.donerhome.activities.menu.profile.ProfileActivity;
+import com.jiromo5.donerhome.activities.main.profile.ProfileActivity;
 
 public class BackClickListener implements View.OnClickListener {
 

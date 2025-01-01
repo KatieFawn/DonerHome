@@ -24,43 +24,55 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".activities.menu.MenuActivity"
+        <activity android:name=".activities.main.menu.MenuActivity"
             android:exported="true">
         </activity>
 
-        <activity android:name=".activities.menu.DealsActivity"
-            android:exported="true">
-        </activity>
-
-        <activity android:name=".activities.menu.shopping.CartActivity"
-            android:exported="true">
-        </activity>
-
-        <activity android:name=".activities.menu.profile.ProfileActivity"
-            android:exported="true">
-        </activity>
-
-            <activity android:name=".activities.menu.profile.UserInfoActivity"
+            <activity android:name=".activities.main.menu.AddDrinkActivity"
                 android:exported="true">
             </activity>
 
-            <activity android:name=".activities.menu.profile.AddressesActivity"
+            <activity android:name=".activities.main.menu.DrinkActivity"
                 android:exported="true">
             </activity>
 
-                <activity android:name=".activities.menu.profile.UpdateAddressActivity"
+            <activity android:name=".activities.main.menu.BurgerActivity"
+                android:exported="true">
+            </activity>
+
+        <activity android:name=".activities.main.deals.DealsActivity"
+            android:exported="true">
+        </activity>
+
+        <activity android:name=".activities.main.shopping.CartActivity"
+            android:exported="true">
+        </activity>
+
+        <activity android:name=".activities.main.profile.ProfileActivity"
+            android:exported="true">
+        </activity>
+
+            <activity android:name=".activities.main.profile.UserInfoActivity"
+                android:exported="true">
+            </activity>
+
+            <activity android:name=".activities.main.profile.AddressesActivity"
+                android:exported="true">
+            </activity>
+
+                <activity android:name=".activities.main.profile.UpdateAddressActivity"
                     android:exported="true">
                 </activity>
 
-            <activity android:name=".activities.menu.profile.FeedBackActivity"
+            <activity android:name=".activities.main.profile.FeedBackActivity"
                 android:exported="true">
             </activity>
 
-            <activity android:name=".activities.menu.profile.SettingsActivity"
+            <activity android:name=".activities.main.profile.SettingsActivity"
                 android:exported="true">
             </activity>
 
-                <activity android:name=".activities.menu.profile.LanguageActivity"
+                <activity android:name=".activities.main.profile.LanguageActivity"
                     android:exported="true">
                 </activity>
 
