@@ -28,17 +28,21 @@
             android:exported="true">
         </activity>
 
-            <activity android:name=".activities.main.menu.AddDrinkActivity"
-                android:exported="true">
-            </activity>
-
             <activity android:name=".activities.main.menu.DrinkActivity"
                 android:exported="true">
             </activity>
 
+                <activity android:name=".activities.main.menu.AddDrinkActivity"
+                    android:exported="true">
+                </activity>
+
             <activity android:name=".activities.main.menu.BurgerActivity"
                 android:exported="true">
             </activity>
+
+                <activity android:name=".activities.main.menu.AddBurgerActivity"
+                    android:exported="true">
+                </activity>
 
         <activity android:name=".activities.main.deals.DealsActivity"
             android:exported="true">

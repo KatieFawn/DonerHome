@@ -4,8 +4,8 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import com.jiromo5.donerhome.main.menu.ColaOrderState;
-import com.jiromo5.donerhome.main.menu.OrderManager;
+import com.jiromo5.donerhome.main.menu.OrderState;
+import com.jiromo5.donerhome.main.menu.ColaOrderManager;
 
 public class LargeSizeListener implements View.OnClickListener {
 
@@ -14,7 +14,7 @@ public class LargeSizeListener implements View.OnClickListener {
     private ImageButton mediumButton;
     private ImageButton largeButton;
 
-    private OrderManager orderManager;
+    private ColaOrderManager orderManager;
 
     public LargeSizeListener(ImageButton smallButton, ImageButton mediumButton,
                              ImageButton largeButton, TextView nameOfItem){
@@ -28,13 +28,13 @@ public class LargeSizeListener implements View.OnClickListener {
     public void onClick(View view) {
         nameOfItem.setText("Coca-Cola 0.75l");
         changeState();
-        orderManager = new OrderManager(smallButton, mediumButton, largeButton);
+        orderManager = new ColaOrderManager(smallButton, mediumButton, largeButton);
         orderManager.updateState();
     }
 
     private void changeState(){
-        ColaOrderState.isSmallSizeSelect = false;
-        ColaOrderState.isMediumSizeSelect = false;
-        ColaOrderState.isLargeSizeSelect = true;
+        OrderState.isSmallSizeSelect = false;
+        OrderState.isMediumSizeSelect = false;
+        OrderState.isLargeSizeSelect = true;
     }
 }

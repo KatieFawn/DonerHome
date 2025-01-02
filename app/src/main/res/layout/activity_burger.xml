@@ -2,7 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/burger"
+    android:id="@+id/burger_order"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activities.main.menu.BurgerActivity">
@@ -81,7 +81,7 @@
             <!-- Burgers -->
 
             <ImageButton
-                android:id="@+id/cheesburger"
+                android:id="@+id/cheeseburger"
                 android:layout_width="320dp"
                 android:layout_height="80dp"
                 android:src="@drawable/cheeseburger"

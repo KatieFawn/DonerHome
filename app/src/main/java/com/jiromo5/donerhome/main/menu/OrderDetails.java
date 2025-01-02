@@ -18,5 +18,5 @@ public class OrderDetails {
     public static int countOfOrder = 0;
 
     public static Map<Integer, int[]> colaOrder = new HashMap<>();
-
+    public static Map<Integer, Integer> cheeseburgerOrder = new HashMap<>();
 }

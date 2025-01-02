@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -12,9 +11,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.jiromo5.donerhome.R;
-import com.jiromo5.donerhome.main.menu.ColaOrderState;
+import com.jiromo5.donerhome.main.menu.OrderState;
 import com.jiromo5.donerhome.main.menu.ItemsDrinkManager;
-import com.jiromo5.donerhome.main.menu.OrderManager;
+import com.jiromo5.donerhome.main.menu.ColaOrderManager;
 import com.jiromo5.donerhome.main.menu.listeners.AddOrderListener;
 import com.jiromo5.donerhome.main.menu.listeners.BackToDrinkListener;
 import com.jiromo5.donerhome.main.menu.listeners.CloseOrderMessageListener;
@@ -38,13 +37,13 @@ public class AddDrinkActivity extends AppCompatActivity {
     private ImageView completeOrderMessage;
     private ConstraintLayout currentLayout;
 
-    private OrderManager orderManager;
+    private ColaOrderManager orderManager;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        ColaOrderState.clearState();
+        OrderState.clearState();
 
         if (ItemsDrinkManager.isColaButtonClicked) {
             setContentView(R.layout.activity_cola_order);
@@ -64,7 +63,7 @@ public class AddDrinkActivity extends AppCompatActivity {
         addToOrderButton = findViewById(R.id.add_to_order);
         completeOrderMessage = findViewById(R.id.complete_message);
 
-        orderManager = new OrderManager(smallColaButton, mediumColaButton, largeColaButton);
+        orderManager = new ColaOrderManager(smallColaButton, mediumColaButton, largeColaButton);
         orderManager.updateState();
 
         setButtonClickListeners();

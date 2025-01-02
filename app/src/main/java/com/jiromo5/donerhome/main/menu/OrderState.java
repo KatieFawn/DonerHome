@@ -1,6 +1,6 @@
 package com.jiromo5.donerhome.main.menu;
 
-public class ColaOrderState {
+public class OrderState {
 
     public static boolean isSmallSizeSelect = true;
     public static boolean isMediumSizeSelect;

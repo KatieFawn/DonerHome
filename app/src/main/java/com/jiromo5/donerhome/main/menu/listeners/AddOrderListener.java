@@ -1,11 +1,11 @@
 package com.jiromo5.donerhome.main.menu.listeners;
 
-import android.graphics.Color;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.ImageView;
 
-import com.jiromo5.donerhome.main.menu.ColaOrderState;
+import com.jiromo5.donerhome.main.menu.ItemsBurgerManager;
+import com.jiromo5.donerhome.main.menu.ItemsDrinkManager;
+import com.jiromo5.donerhome.main.menu.OrderState;
 import com.jiromo5.donerhome.main.menu.OrderDetails;
 
 public class AddOrderListener implements View.OnClickListener {
@@ -28,16 +28,21 @@ public class AddOrderListener implements View.OnClickListener {
     }
 
     private void saveOrder(){
-        OrderDetails.colaOrder.put(OrderDetails.countOfOrder, new int[]{ColaOrderState.countOfItem, getColaSize()});
-        OrderDetails.countOfOrder++;
+        if (ItemsDrinkManager.isColaButtonClicked) {
+            OrderDetails.colaOrder.put(OrderDetails.countOfOrder, new int[]{OrderState.countOfItem, getColaSize()});
+            OrderDetails.countOfOrder++;
+        } else if (ItemsBurgerManager.isCheeseBurgerButtonClicked){
+            OrderDetails.cheeseburgerOrder.put(OrderDetails.countOfOrder, OrderState.countOfItem);
+            OrderDetails.countOfOrder++;
+        }
     }
 
     private int getColaSize(){
-        if (ColaOrderState.isSmallSizeSelect){
+        if (OrderState.isSmallSizeSelect){
             return 1;
-        } else if (ColaOrderState.isMediumSizeSelect){
+        } else if (OrderState.isMediumSizeSelect){
             return 2;
-        } else if (ColaOrderState.isLargeSizeSelect) {
+        } else if (OrderState.isLargeSizeSelect) {
             return 3;
         }
         return 0;
