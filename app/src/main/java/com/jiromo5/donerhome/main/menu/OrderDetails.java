@@ -15,8 +15,19 @@ import java.util.Map;
 
 public class OrderDetails {
 
-    public static int countOfOrder = 0;
+    public static int countOfOrder = 2;
 
     public static Map<Integer, int[]> colaOrder = new HashMap<>();
     public static Map<Integer, Integer> cheeseburgerOrder = new HashMap<>();
+
+    //cheeseburger[0] = count of order,
+    //cheeseburger[1] = count of items,
+
+    //colaorder[0] = count of order,
+    //colaorder[0, 1] = count of item and size of item.
+
+    static  {
+        colaOrder.put(0, new int[]{1, 0});
+        cheeseburgerOrder.put(1, 1);
+    }
 }

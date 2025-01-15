@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Высота FrameLayout -->
+    <dimen name="frame_height">80dp</dimen>
+
+    <!-- Размеры для ImageView -->
+    <dimen name="cola_order_width">350dp</dimen>
+    <dimen name="cola_order_height">60dp</dimen>
+
+    <!-- Размеры для ImageButton -->
+    <dimen name="remove_button_width">25dp</dimen>
+    <dimen name="remove_button_height">35dp</dimen>
+
+    <!-- Отступы -->
+    <dimen name="remove_button_margin_end">30dp</dimen>
+    <dimen name="price_margin_end">85dp</dimen>
+    <dimen name="spinner_margin_start">35dp</dimen>
+
+    <!-- Размеры текста -->
+    <dimen name="price_text_size">22sp</dimen>
+</resources>
