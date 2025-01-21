@@ -14,6 +14,8 @@
         android:theme="@style/Theme.DonerHome"
         android:networkSecurityConfig="@xml/network_security_config"
         tools:targetApi="31">
+
+        <!-- Main activity !!!! -->
         <activity
             android:name=".activities.intro.SplashActivity"
             android:exported="true">
@@ -24,59 +26,78 @@
             </intent-filter>
         </activity>
 
+        <!-- Menu activity. -->
         <activity android:name=".activities.main.menu.MenuActivity"
             android:exported="true">
         </activity>
 
+        <!-- Drink activity. -->
             <activity android:name=".activities.main.menu.DrinkActivity"
                 android:exported="true">
             </activity>
 
+        <!-- Add drink to cart activity.-->
                 <activity android:name=".activities.main.menu.AddDrinkActivity"
                     android:exported="true">
                 </activity>
 
+        <!-- Burger activity. -->
             <activity android:name=".activities.main.menu.BurgerActivity"
                 android:exported="true">
             </activity>
 
+        <!-- Add burger to cart activity. -->
                 <activity android:name=".activities.main.menu.AddBurgerActivity"
                     android:exported="true">
                 </activity>
 
+        <!-- Deals activity. -->
         <activity android:name=".activities.main.deals.DealsActivity"
             android:exported="true">
         </activity>
 
+        <!-- Cart activity. -->
         <activity android:name=".activities.main.shopping.CartActivity"
             android:exported="true">
         </activity>
 
+        <!-- PaymentActivity activity. -->
+            <activity android:name=".activities.main.shopping.PaymentActivity"
+                android:exported="true">
+            </activity>
+
+        <!-- Profile activity. -->
         <activity android:name=".activities.main.profile.ProfileActivity"
             android:exported="true">
         </activity>
 
+        <!-- User info activity. -->
             <activity android:name=".activities.main.profile.UserInfoActivity"
                 android:exported="true">
             </activity>
 
+        <!-- Address activity. -->
             <activity android:name=".activities.main.profile.AddressesActivity"
                 android:exported="true">
             </activity>
 
-                <activity android:name=".activities.main.profile.UpdateAddressActivity"
+        <!-- Update address activity. -->
+            <activity android:name=".activities.main.profile.UpdateAddressActivity"
                     android:exported="true">
                 </activity>
 
+        <!-- Feed back activity. -->
             <activity android:name=".activities.main.profile.FeedBackActivity"
                 android:exported="true">
             </activity>
 
+        <!-- Settings activity. -->
             <activity android:name=".activities.main.profile.SettingsActivity"
                 android:exported="true">
             </activity>
 
-                <activity android:name=".activities.main.profile.LanguageActivity"
+        <!-- Choose language activity. -->
+                 <activity android:name=".activities.main.profile.LanguageActivity"
                     android:exported="true">
                 </activity>
 

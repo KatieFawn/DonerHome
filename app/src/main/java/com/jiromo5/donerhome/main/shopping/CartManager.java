@@ -34,11 +34,15 @@ public class CartManager {
     private TextView priceView;
     private Spinner countOfItem;
 
+    private TextView totalPriceView;
+    private float totalPrice;
 
-    public CartManager(Context context, TextView welcome, ImageView logo){
+
+    public CartManager(Context context, TextView welcome, ImageView logo, TextView totalPriceView){
         this.context = context;
         this.welcome = welcome;
         this.logo = logo;
+        this.totalPriceView = totalPriceView;
 
         frameLayout = new FrameLayout[OrderDetails.countOfOrder];
         removeOrderButton = new ImageButton[OrderDetails.countOfOrder];
@@ -164,11 +168,15 @@ public class CartManager {
         switch (nameOfItem) {
             case "cola":
                 priceCola = priceCola * count;
+                totalPrice = totalPrice + priceCola;
                 priceView.setText(String.valueOf(priceCola) + "$");
+                totalPriceView.setText(String.valueOf(totalPrice) + "$");
                 break;
             case "cheeseburger":
                 priceCheeseburger = priceCheeseburger * count;
+                totalPrice = totalPrice + priceCheeseburger;
                 priceView.setText(String.valueOf(priceCheeseburger) + "$");
+                totalPriceView.setText(String.valueOf(totalPrice) + "$");
                 break;
         }
         priceView.setTextColor(Color.BLACK);

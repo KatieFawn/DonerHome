@@ -94,13 +94,39 @@
         android:scaleType="centerInside"
         app:layout_constraintVertical_bias="0.1" />
 
+    <ImageButton
+        android:id="@+id/buy_button"
+        android:layout_width="133dp"
+        android:layout_height="40dp"
+        android:src="@drawable/buy_button_selector"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintVertical_bias="0.85"/>
+
+    <TextView
+        android:id="@+id/total_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0.0$"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:scaleType="centerInside"
+        app:layout_constraintVertical_bias="0.85" />
+
     <ScrollView
         android:id="@+id/scroll_view"
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="25dp"
-        android:layout_marginBottom="55dp"
+        android:layout_marginBottom="155dp"
         android:fillViewport="true">
 
         <LinearLayout

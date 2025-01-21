@@ -16,6 +16,7 @@ import java.util.Map;
 public class OrderDetails {
 
     public static int countOfOrder = 2;
+    public static float totalPrice = 0;
 
     public static Map<Integer, int[]> colaOrder = new HashMap<>();
     public static Map<Integer, Integer> cheeseburgerOrder = new HashMap<>();

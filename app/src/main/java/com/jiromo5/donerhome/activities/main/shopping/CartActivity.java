@@ -26,6 +26,7 @@ import com.jiromo5.donerhome.main.navigation.listeners.DealsClickListener;
 import com.jiromo5.donerhome.main.navigation.listeners.HomeClickListener;
 import com.jiromo5.donerhome.main.navigation.listeners.ProfileClickListener;
 import com.jiromo5.donerhome.main.shopping.CartManager;
+import com.jiromo5.donerhome.main.shopping.listeners.BuyButtonListener;
 
 public class CartActivity extends AppCompatActivity {
 
@@ -40,6 +41,9 @@ public class CartActivity extends AppCompatActivity {
     private ImageButton countOfCola;
     private ImageButton priceOfCola;
     private LinearLayout orderList;
+
+    private TextView totalPrice;
+    private ImageButton buyButton;
 
     private NavigationBarController navigationBarController;
     private CartManager cartManager;
@@ -57,8 +61,10 @@ public class CartActivity extends AppCompatActivity {
         welcome = findViewById(R.id.welcome);
         cartLogo = findViewById(R.id.cart_logo);
         orderList = findViewById(R.id.order_list);
+        totalPrice = findViewById(R.id.total_price);
+        buyButton = findViewById(R.id.buy_button);
 
-        cartManager = new CartManager(this, welcome, cartLogo);
+        cartManager = new CartManager(this, welcome, cartLogo, totalPrice);
         cartManager.addItemToCart(orderList);
         cartManager.removeItemFromCart(orderList);
         cartManager.toggleVisibility();
@@ -90,10 +96,12 @@ public class CartActivity extends AppCompatActivity {
         DealsClickListener dealsClickListener = new DealsClickListener(this);
         CartsClickListener cartsClickListener = new CartsClickListener(this);
         ProfileClickListener profileClickListener = new ProfileClickListener(this);
+        BuyButtonListener buyButtonListener = new BuyButtonListener(this);
 
         homeButton.setOnClickListener(homeClickListener);
         dealsButton.setOnClickListener(dealsClickListener);
         cartButton.setOnClickListener(cartsClickListener);
         profileButton.setOnClickListener(profileClickListener);
+        buyButton.setOnClickListener(buyButtonListener);
     }
 }
