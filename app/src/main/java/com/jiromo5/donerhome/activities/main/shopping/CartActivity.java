@@ -64,32 +64,16 @@ public class CartActivity extends AppCompatActivity {
         totalPrice = findViewById(R.id.total_price);
         buyButton = findViewById(R.id.buy_button);
 
-        cartManager = new CartManager(this, welcome, cartLogo, totalPrice);
+        cartManager = new CartManager(this, welcome, cartLogo, totalPrice, buyButton);
         cartManager.addItemToCart(orderList);
         cartManager.removeItemFromCart(orderList);
         cartManager.toggleVisibility();
-
-        configurePopupMenu();
 
         cartEventHandler();
 
         navigationBarController = new NavigationBarController(homeButton, dealsButton, cartButton, profileButton);
         navigationBarController.updateButtonState();
     }
-
-    private void configurePopupMenu() {
-        // Настройка адаптера
-        Spinner spinner = findViewById(R.id.count_of_items);
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
-                this,
-                R.array.spinner_items,
-                R.layout.spinner_item // Ваш кастомный макет
-        );
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item); // Выпадающий вид
-        spinner.setAdapter(adapter);
-    }
-
-
 
     private void cartEventHandler(){
         HomeClickListener homeClickListener = new HomeClickListener(this);

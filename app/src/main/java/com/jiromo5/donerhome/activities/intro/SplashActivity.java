@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageView;
 import com.jiromo5.donerhome.R;
-import com.jiromo5.donerhome.auth.TokenService;
+import com.jiromo5.donerhome.service.auth.TokenService;
 import com.jiromo5.donerhome.intro.SplashHandler;
 import com.jiromo5.donerhome.utils.TokenManager;
 

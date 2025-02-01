@@ -1,7 +1,7 @@
 package com.jiromo5.donerhome.network;
 
 import android.util.Log;
-import com.jiromo5.donerhome.auth.AuthService;
+import com.jiromo5.donerhome.service.auth.AuthService;
 import com.jiromo5.donerhome.data.dto.LoginData;
 import com.jiromo5.donerhome.utils.TokenManager;
 import java.util.Map;

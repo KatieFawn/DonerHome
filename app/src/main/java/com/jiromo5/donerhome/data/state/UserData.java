@@ -10,6 +10,7 @@ package com.jiromo5.donerhome.data.state;
 public class UserData {
 
     //The user's email address. Initialized to null and can be set to a valid email.
+    public static Long userId = 1L;
     public static String email = "test@mail.com";
     //The user's role. Initialized to null and can be set to a valid role.
     public static String role = "USER";

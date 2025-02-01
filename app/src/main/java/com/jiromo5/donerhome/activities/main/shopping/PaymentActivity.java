@@ -71,7 +71,8 @@ public class PaymentActivity extends AppCompatActivity {
 
     private void eventHandler(){
         BackToCartListener backToCartListener = new BackToCartListener(this);
-        CompletePaymentListener completePaymentListener = new CompletePaymentListener(cartNumber, cartDate, cvvCart);
+        CompletePaymentListener completePaymentListener = new CompletePaymentListener(
+                this, cartNumber, cartDate, cvvCart);
 
         backButton.setOnClickListener(backToCartListener);
         completeButton.setOnClickListener(completePaymentListener);

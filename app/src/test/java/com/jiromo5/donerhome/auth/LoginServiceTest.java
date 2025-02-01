@@ -10,6 +10,8 @@ import static org.mockito.Mockito.withSettings;
 import android.util.Log;
 import com.jiromo5.donerhome.data.dto.LoginData;
 import com.jiromo5.donerhome.network.AuthFormPutRequest;
+import com.jiromo5.donerhome.service.auth.LoginService;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

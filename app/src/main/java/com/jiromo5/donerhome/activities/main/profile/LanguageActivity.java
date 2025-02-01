@@ -7,7 +7,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.jiromo5.donerhome.R;
-import com.jiromo5.donerhome.auth.BackClickListener;
+import com.jiromo5.donerhome.service.auth.BackClickListener;
 import com.jiromo5.donerhome.main.profile.LanguageManager;
 import com.jiromo5.donerhome.main.profile.listeners.SelectEnglishListener;
 import com.jiromo5.donerhome.main.profile.listeners.SelectGermanyListener;

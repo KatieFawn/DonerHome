@@ -18,17 +18,19 @@ public class OrderDetails {
     public static int countOfOrder = 2;
     public static float totalPrice = 0;
 
-    public static Map<Integer, int[]> colaOrder = new HashMap<>();
+    public static Map<Integer, Integer> colaSizeSOrder = new HashMap<>();
+    public static Map<Integer, Integer> colaSizeMOrder = new HashMap<>();
+    public static Map<Integer, Integer> colaSizeLOrder = new HashMap<>();
     public static Map<Integer, Integer> cheeseburgerOrder = new HashMap<>();
 
-    //cheeseburger[0] = count of order,
-    //cheeseburger[1] = count of items,
+    //cheeseburger[0] = количество заказов,
+    //cheeseburger[1] = количество предметов,
 
     //colaorder[0] = count of order,
     //colaorder[0, 1] = count of item and size of item.
 
     static  {
-        colaOrder.put(0, new int[]{1, 0});
+        colaSizeSOrder.put(0, 1);
         cheeseburgerOrder.put(1, 1);
     }
 }

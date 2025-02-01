@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.EditText;
 
 import com.jiromo5.donerhome.activities.main.shopping.PaymentVerificationActivity;
+import com.jiromo5.donerhome.data.state.PaymentCard;
 
 import java.util.Calendar;
 
@@ -29,6 +30,11 @@ public class CompletePaymentListener implements View.OnClickListener {
     @Override
     public void onClick(View view) {
         if (validateCartNumber() & validateCartDate() & validateCvvCart()){
+
+            PaymentCard.cardNumber = cartNumber.getText().toString();
+            PaymentCard.expiryDate = dateCart.getText().toString();
+            PaymentCard.cvv = cvvCart.getText().toString();
+
             Intent intent = new Intent(context, PaymentVerificationActivity.class);
             context.startActivity(intent);
         }
@@ -50,7 +56,7 @@ public class CompletePaymentListener implements View.OnClickListener {
 
         String number = dateCart.getText().toString();
 
-        if (!number.isEmpty()) {
+        if (!number.isEmpty() & number.length() <= 5 & number.contains("/")) {
             // Разделяем дату на месяц и год
             String[] parts = number.split("/");
             int month = Integer.parseInt(parts[0]); // MM

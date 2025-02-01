@@ -27,6 +27,7 @@ public class CartManager {
 
     private TextView welcome;
     private ImageView logo;
+    private ImageButton payButton;
 
     private FrameLayout[] frameLayout;
     private ImageView colaOrderImageView;
@@ -38,31 +39,27 @@ public class CartManager {
     private float totalPrice;
 
 
-    public CartManager(Context context, TextView welcome, ImageView logo, TextView totalPriceView){
+    public CartManager(Context context, TextView welcome, ImageView logo, TextView totalPriceView, ImageButton payButton){
         this.context = context;
         this.welcome = welcome;
         this.logo = logo;
         this.totalPriceView = totalPriceView;
+        this.payButton = payButton;
+
+        OrderDetails.totalPrice = 0;
 
         frameLayout = new FrameLayout[OrderDetails.countOfOrder];
         removeOrderButton = new ImageButton[OrderDetails.countOfOrder];
     }
 
-    //Делаем корзину с продуктами.
-    //Проверяем переменную countOfOrder, если оно больше 0, затем программно создаем две кнопки:
-    // продукт и кнопка удаления продукта.
-    //данные берём из массивов в OrderDetails.
-    //Если countOfOrder == 0, мы показываем дефолтное меню корзины.
-    //
-
     public void addItemToCart(LinearLayout orderList){
 
         for (int i = 0; i < OrderDetails.countOfOrder; i ++) {
-            if (OrderDetails.colaOrder.size() > 0) {
-                if (OrderDetails.colaOrder.containsKey(i)) {
+            if (OrderDetails.colaSizeSOrder.size() > 0) {
+                if (OrderDetails.colaSizeSOrder.containsKey(i)) {
                     createImageOrder("cola");
                     createRemoveItemButton(i);
-                    createPriceView("cola", OrderDetails.colaOrder.get(i)[0]);
+                    createPriceView("cola", OrderDetails.colaSizeSOrder.get(i));
                     createCountOfItemView();
                     orderList.addView(createFrameLayout(i));
                 }
@@ -88,8 +85,8 @@ public class CartManager {
                 @Override
                 public void onClick(View view) {
                     Log.d("CartManager", "Click to remove button #" + finalI);
-                    if (OrderDetails.colaOrder.containsKey(finalI)) {
-                        OrderDetails.colaOrder.remove(finalI);
+                    if (OrderDetails.colaSizeSOrder.containsKey(finalI)) {
+                        OrderDetails.colaSizeSOrder.remove(finalI);
                         OrderDetails.countOfOrder = OrderDetails.countOfOrder - 1;
                     } else if (OrderDetails.cheeseburgerOrder.containsKey(finalI)){
                         OrderDetails.cheeseburgerOrder.remove(finalI);
@@ -181,6 +178,7 @@ public class CartManager {
         }
         priceView.setTextColor(Color.BLACK);
         priceView.setTextSize(22);
+        OrderDetails.totalPrice = totalPrice;
     }
 
     private void createCountOfItemView(){
@@ -224,9 +222,13 @@ public class CartManager {
         if (OrderDetails.countOfOrder > 0) {
             welcome.setVisibility(View.INVISIBLE);
             logo.setVisibility(View.INVISIBLE);
+            payButton.setVisibility(View.VISIBLE);
+            totalPriceView.setVisibility(View.VISIBLE);
         } else {
             welcome.setVisibility(View.VISIBLE);
             logo.setVisibility(View.VISIBLE);
+            payButton.setVisibility(View.INVISIBLE);
+            totalPriceView.setVisibility(View.INVISIBLE);
         }
     }
 }

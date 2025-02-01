@@ -1,4 +1,4 @@
-package com.jiromo5.donerhome.auth;
+package com.jiromo5.donerhome.service.auth;
 
 import com.jiromo5.donerhome.data.dto.LoginData;
 import com.jiromo5.donerhome.data.dto.Tokens;

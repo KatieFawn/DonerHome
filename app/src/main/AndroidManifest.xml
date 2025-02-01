@@ -61,8 +61,13 @@
             android:exported="true">
         </activity>
 
-        <!-- PaymentActivity activity. -->
+        <!-- Payment activity. -->
             <activity android:name=".activities.main.shopping.PaymentActivity"
+                android:exported="true">
+            </activity>
+
+        <!-- Payment verification activity. -->
+            <activity android:name=".activities.main.shopping.PaymentVerificationActivity"
                 android:exported="true">
             </activity>
 

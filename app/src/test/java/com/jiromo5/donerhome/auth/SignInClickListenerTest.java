@@ -12,6 +12,10 @@ import android.text.Editable;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import com.jiromo5.donerhome.service.auth.LoginService;
+import com.jiromo5.donerhome.service.auth.SignInClickListener;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

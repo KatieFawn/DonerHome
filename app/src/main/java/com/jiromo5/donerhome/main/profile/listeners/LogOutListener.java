@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.view.View;
 
 import com.jiromo5.donerhome.activities.auth.LoginActivity;
-import com.jiromo5.donerhome.auth.TokenService;
+import com.jiromo5.donerhome.service.auth.TokenService;
 
 public class LogOutListener implements View.OnClickListener {
 

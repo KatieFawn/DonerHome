@@ -5,9 +5,9 @@ import android.util.Log;
 import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
 import com.jiromo5.donerhome.R;
-import com.jiromo5.donerhome.auth.BackClickListener;
-import com.jiromo5.donerhome.auth.LinkClickHandler;
-import com.jiromo5.donerhome.auth.SignInClickListener;
+import com.jiromo5.donerhome.service.auth.BackClickListener;
+import com.jiromo5.donerhome.service.auth.LinkClickHandler;
+import com.jiromo5.donerhome.service.auth.SignInClickListener;
 
 /**
  * LoginActivity represents the login screen of the application.

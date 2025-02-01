@@ -6,9 +6,9 @@ import static org.mockito.Mockito.doAnswer;
 import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
 
 import com.jiromo5.donerhome.network.TokenPutRequest;
+import com.jiromo5.donerhome.service.auth.TokenService;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -16,7 +16,6 @@ import org.junit.runner.RunWith;
 import org.mockito.ArgumentCaptor;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.robolectric.RobolectricTestRunner;
 
@@ -24,8 +23,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import io.reactivex.rxjava3.core.SingleEmitter;
-import okhttp3.ResponseBody;
-import retrofit2.Retrofit;
 
 @RunWith(RobolectricTestRunner.class)
 public class TokenServiceTest {

@@ -1,4 +1,4 @@
-package com.jiromo5.donerhome.auth;
+package com.jiromo5.donerhome.service.auth;
 
 /**
  * Defines the contract for services handling network requests and user authorization.

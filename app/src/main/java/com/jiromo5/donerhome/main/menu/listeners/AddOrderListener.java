@@ -29,8 +29,14 @@ public class AddOrderListener implements View.OnClickListener {
 
     private void saveOrder(){
         if (ItemsDrinkManager.isColaButtonClicked) {
-            OrderDetails.colaOrder.put(OrderDetails.countOfOrder, new int[]{OrderState.countOfItem, getColaSize()});
-            OrderDetails.countOfOrder++;
+            if (OrderState.isSmallSizeSelect){
+                OrderDetails.colaSizeSOrder.put(OrderDetails.countOfOrder, OrderState.countOfItem);
+                OrderDetails.countOfOrder++;
+            } else if (OrderState.isMediumSizeSelect){
+
+            } else if (OrderState.isLargeSizeSelect){
+
+            }
         } else if (ItemsBurgerManager.isCheeseBurgerButtonClicked){
             OrderDetails.cheeseburgerOrder.put(OrderDetails.countOfOrder, OrderState.countOfItem);
             OrderDetails.countOfOrder++;

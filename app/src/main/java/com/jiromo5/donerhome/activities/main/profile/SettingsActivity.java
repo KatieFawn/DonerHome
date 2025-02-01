@@ -7,7 +7,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.jiromo5.donerhome.R;
-import com.jiromo5.donerhome.auth.BackClickListener;
+import com.jiromo5.donerhome.service.auth.BackClickListener;
 import com.jiromo5.donerhome.main.navigation.NavigationBarController;
 import com.jiromo5.donerhome.main.navigation.listeners.CartsClickListener;
 import com.jiromo5.donerhome.main.navigation.listeners.DealsClickListener;
