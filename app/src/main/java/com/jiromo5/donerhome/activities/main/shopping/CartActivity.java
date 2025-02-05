@@ -37,9 +37,6 @@ public class CartActivity extends AppCompatActivity {
 
     private ImageView cartLogo;
     private TextView welcome;
-    private ImageButton colaOrder;
-    private ImageButton countOfCola;
-    private ImageButton priceOfCola;
     private LinearLayout orderList;
 
     private TextView totalPrice;

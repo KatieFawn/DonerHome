@@ -6,6 +6,7 @@ import android.util.Log;
 import androidx.security.crypto.*;
 import java.io.IOException;
 import java.security.GeneralSecurityException;
+import java.util.Map;
 
 /**
  * TokenManager is responsible for securely storing and managing authentication tokens
@@ -44,6 +45,13 @@ public class TokenManager {
      */
     public static void saveToken(String key, String token) {
         sharedPreferences.edit().putString(key, token).apply();
+    }
+
+    public static void logData() {
+        Map<String, ?> allEntries = sharedPreferences.getAll();
+        for (Map.Entry<String, ?> entry : allEntries.entrySet()) {
+            Log.d("TokenManager", "Ключ: " + entry.getKey() + ", Значение: " + entry.getValue());
+        }
     }
 
     /**

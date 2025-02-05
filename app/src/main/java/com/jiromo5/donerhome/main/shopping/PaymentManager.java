@@ -32,7 +32,7 @@ public class PaymentManager {
             successView.setVisibility(View.VISIBLE);
             backToMenuButton.setVisibility(View.VISIBLE);
 
-            OrderDetails.countOfOrder = 0;
+            OrderDetails.orderQuantity = 0;
             OrderDetails.totalPrice = 0;
             OrderDetails.colaSizeSOrder.clear();
             OrderDetails.cheeseburgerOrder.clear();

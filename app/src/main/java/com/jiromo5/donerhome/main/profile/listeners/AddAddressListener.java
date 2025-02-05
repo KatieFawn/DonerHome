@@ -23,22 +23,16 @@ public class AddAddressListener implements View.OnClickListener {
     }
 
     private void handleButtonClick(View view){
-        switch (view.getId()){
-            case R.id.address1:
-                AddressManager.clickedButtonNumber = 0;
-                break;
-            case R.id.address2:
-                AddressManager.clickedButtonNumber = 1;
-                break;
-            case R.id.address3:
-                AddressManager.clickedButtonNumber = 2;
-                break;
-            case R.id.address4:
-                AddressManager.clickedButtonNumber = 3;
-                break;
-            case R.id.address5:
-                AddressManager.clickedButtonNumber = 4;
-                break;
+        if (view.getId() == R.id.address1) {
+            AddressManager.clickedButtonNumber = 0;
+        } else if (view.getId() == R.id.address2) {
+            AddressManager.clickedButtonNumber = 1;
+        } else if (view.getId() == R.id.address3) {
+            AddressManager.clickedButtonNumber = 2;
+        } else if (view.getId() == R.id.address4) {
+            AddressManager.clickedButtonNumber = 3;
+        } else if (view.getId() == R.id.address5) {
+            AddressManager.clickedButtonNumber = 4;
         }
     }
 

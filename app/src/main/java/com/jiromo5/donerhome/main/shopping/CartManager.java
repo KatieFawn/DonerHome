@@ -1,5 +1,7 @@
 package com.jiromo5.donerhome.main.shopping;
 
+import static com.jiromo5.donerhome.utils.CartStorage.getAllProducts;
+
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
@@ -20,6 +22,8 @@ import android.widget.TextView;
 import com.jiromo5.donerhome.R;
 import com.jiromo5.donerhome.activities.main.shopping.CartActivity;
 import com.jiromo5.donerhome.main.menu.OrderDetails;
+import com.jiromo5.donerhome.main.menu.OrderState;
+import com.jiromo5.donerhome.utils.CartStorage;
 
 public class CartManager {
 
@@ -47,14 +51,17 @@ public class CartManager {
         this.payButton = payButton;
 
         OrderDetails.totalPrice = 0;
-
-        frameLayout = new FrameLayout[OrderDetails.countOfOrder];
-        removeOrderButton = new ImageButton[OrderDetails.countOfOrder];
     }
 
     public void addItemToCart(LinearLayout orderList){
+        if (OrderDetails.cheeseburgerOrder.size() > 0 & OrderDetails.colaSizeSOrder.size() > 0) {
+            OrderDetails.orderQuantity += 1;
+        }
 
-        for (int i = 0; i < OrderDetails.countOfOrder; i ++) {
+        frameLayout = new FrameLayout[OrderDetails.orderQuantity];
+        removeOrderButton = new ImageButton[OrderDetails.orderQuantity];
+
+        for (int i = 0; i < OrderDetails.orderQuantity; i ++) {
             if (OrderDetails.colaSizeSOrder.size() > 0) {
                 if (OrderDetails.colaSizeSOrder.containsKey(i)) {
                     createImageOrder("cola");
@@ -87,10 +94,10 @@ public class CartManager {
                     Log.d("CartManager", "Click to remove button #" + finalI);
                     if (OrderDetails.colaSizeSOrder.containsKey(finalI)) {
                         OrderDetails.colaSizeSOrder.remove(finalI);
-                        OrderDetails.countOfOrder = OrderDetails.countOfOrder - 1;
+                        OrderDetails.orderQuantity--;
                     } else if (OrderDetails.cheeseburgerOrder.containsKey(finalI)){
                         OrderDetails.cheeseburgerOrder.remove(finalI);
-                        OrderDetails.countOfOrder = OrderDetails.countOfOrder - 1;
+                        OrderDetails.orderQuantity--;
                     }
                     orderList.removeView(frameLayout[finalI]);
 
@@ -219,7 +226,7 @@ public class CartManager {
     }
 
     public void toggleVisibility() {
-        if (OrderDetails.countOfOrder > 0) {
+        if (OrderDetails.orderQuantity > 0) {
             welcome.setVisibility(View.INVISIBLE);
             logo.setVisibility(View.INVISIBLE);
             payButton.setVisibility(View.VISIBLE);
@@ -229,6 +236,51 @@ public class CartManager {
             logo.setVisibility(View.VISIBLE);
             payButton.setVisibility(View.INVISIBLE);
             totalPriceView.setVisibility(View.INVISIBLE);
+        }
+    }
+
+    public static void restoreCart(){
+        String[] allProducts = CartStorage.getAllProducts();
+
+        String line = "";
+
+        int orderQuantity = 0;
+        String nameOfItem = "";
+        int countOfItem = 0;
+
+        for (int i = 0; i < allProducts.length; i ++){
+            line = allProducts[i];
+
+            //0_Cola Size S_1
+
+            for (int j = 0; j < line.length(); j ++){
+                if (j == 0) {
+                    orderQuantity = Integer.parseInt(String.valueOf(line.charAt(j)));
+                    j++;
+                    continue;
+                }
+
+                if (line.charAt(j) != '_'){
+                    nameOfItem += String.valueOf(line.charAt(j));
+                } else {
+                    countOfItem = Integer.parseInt(String.valueOf(line.charAt(j + 1)));
+                    break;
+                }
+            }
+            if (nameOfItem.equals("Cola Size S")){
+                OrderState.countOfItem = countOfItem;
+                OrderDetails.colaSizeSOrder.put(orderQuantity, countOfItem);
+                OrderDetails.orderQuantity = orderQuantity;
+            } else if (nameOfItem.equals("Cheeseburger")){
+                OrderState.countOfItem = countOfItem;
+                OrderDetails.cheeseburgerOrder.put(orderQuantity, countOfItem);
+                OrderDetails.orderQuantity = orderQuantity;
+            }
+
+            line = "";
+            orderQuantity = 0;
+            nameOfItem = "";
+            countOfItem = 0;
         }
     }
 }

@@ -6,8 +6,10 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageView;
 import com.jiromo5.donerhome.R;
+import com.jiromo5.donerhome.main.shopping.CartManager;
 import com.jiromo5.donerhome.service.auth.TokenService;
 import com.jiromo5.donerhome.intro.SplashHandler;
+import com.jiromo5.donerhome.utils.CartStorage;
 import com.jiromo5.donerhome.utils.TokenManager;
 
 /**
@@ -50,6 +52,9 @@ public class SplashActivity extends AppCompatActivity {
         splashHandler.setLogoOnScreen(imageView);
 
         TokenManager.createContainer(this);
+        CartStorage.createContainer(this);
+        CartManager.restoreCart();
+
         //TokenManager.saveToken("refresh_token", "SPSbUdqu6gAJngpmV_gT0s48ZMexO2XYVA89WqeuSpKKL4PRwi5g0glR_0uscCjIhgaFyKk-N4Fuc6C4KUwmlg==");
 
         tokenService = new TokenService(this);

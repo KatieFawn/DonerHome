@@ -129,7 +129,7 @@ public class PaymentVerificationActivity extends AppCompatActivity {
         int priceCola = 1;
         float priceCheeseburger = 2.25f;
 
-        for (int i = 0; i < OrderDetails.countOfOrder; i ++) {
+        for (int i = 0; i < OrderDetails.orderQuantity; i ++) {
             if (OrderDetails.colaSizeSOrder.size() > 0) {
                 if (OrderDetails.colaSizeSOrder.containsKey(i)) {
 

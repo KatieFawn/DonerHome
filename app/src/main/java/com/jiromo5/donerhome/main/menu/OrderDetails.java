@@ -15,7 +15,7 @@ import java.util.Map;
 
 public class OrderDetails {
 
-    public static int countOfOrder = 2;
+    public static int orderQuantity = 0; //2
     public static float totalPrice = 0;
 
     public static Map<Integer, Integer> colaSizeSOrder = new HashMap<>();
@@ -30,7 +30,7 @@ public class OrderDetails {
     //colaorder[0, 1] = count of item and size of item.
 
     static  {
-        colaSizeSOrder.put(0, 1);
-        cheeseburgerOrder.put(1, 1);
+        //colaSizeSOrder.put(0, 1);
+        //cheeseburgerOrder.put(1, 1);
     }
 }
