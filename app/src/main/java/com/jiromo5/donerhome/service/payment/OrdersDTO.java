@@ -11,20 +11,25 @@ public class OrdersDTO {
     private String orderDate;   // Дата и время заказа
     private String status;             // Статус заказа
     private BigDecimal totalPrice;     // Общая стоимость заказа
-    private Long shippingAddressId;    // Ссылка на адрес доставки
     private String paymentMethod;      // Способ оплаты
+    private String street;
+    private String build;
+    private String apartment;
 
     // Конструкторы
     public OrdersDTO() {}
 
     public OrdersDTO(Long userId, String orderDate, String status,
-                    BigDecimal totalPrice, Long shippingAddressId, String paymentMethod) {
+                    BigDecimal totalPrice, String paymentMethod, String street,
+                     String build, String apartment) {
         this.userId = userId;
         this.orderDate = orderDate;
         this.status = status;
         this.totalPrice = totalPrice;
-        this.shippingAddressId = shippingAddressId;
         this.paymentMethod = paymentMethod;
+        this.street = street;
+        this.build = build;
+        this.apartment = apartment;
     }
 
     // Геттеры и сеттеры
@@ -62,19 +67,39 @@ public class OrdersDTO {
         this.totalPrice = totalPrice;
     }
 
-    public Long getShippingAddressId() {
-        return shippingAddressId;
-    }
-
-    public void setShippingAddressId(Long shippingAddressId) {
-        this.shippingAddressId = shippingAddressId;
-    }
-
     public String getPaymentMethod() {
         return paymentMethod;
     }
 
     public void setPaymentMethod(String paymentMethod) {
         this.paymentMethod = paymentMethod;
+    }
+
+    public String getBuild() {
+        return build;
+    }
+
+    public void setBuild(String build) {
+        this.build = build;
+    }
+
+    public String getApartment() {
+        return apartment;
+    }
+
+    public void setApartment(String apartment) {
+        this.apartment = apartment;
+    }
+
+    public String getStreet() {
+        return street;
+    }
+
+    public void setStreet(String street) {
+        this.street = street;
+    }
+
+    public void setOrderDate(String orderDate) {
+        this.orderDate = orderDate;
     }
 }

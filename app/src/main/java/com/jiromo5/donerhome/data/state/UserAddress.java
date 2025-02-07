@@ -16,6 +16,7 @@ public class UserAddress {
     //save, изменить значение поля addressVisibility.
 
     static {
+        /*
         addressVisibility[0] = true;
         addressName[0] = "Home2";
         city[0] = "testCity";
@@ -23,5 +24,7 @@ public class UserAddress {
         build[0] = "9";
         apartment[0] = "9";
         postalCode[0] = "95555";
+
+         */
     }
 }

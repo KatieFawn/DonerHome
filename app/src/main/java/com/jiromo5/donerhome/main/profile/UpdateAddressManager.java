@@ -3,6 +3,8 @@ package com.jiromo5.donerhome.main.profile;
 import android.widget.TextView;
 
 import com.jiromo5.donerhome.data.state.UserAddress;
+import com.jiromo5.donerhome.service.addresses.AddressController;
+import com.jiromo5.donerhome.service.addresses.AddressDTO;
 
 public class UpdateAddressManager {
 
@@ -63,6 +65,14 @@ public class UpdateAddressManager {
                 UserAddress.apartment[1] = apartment.getText().toString();
                 UserAddress.postalCode[1] = postalCode.getText().toString();
                 UserAddress.addressVisibility[1] = true;
+            } else {
+                UserAddress.addressName[0] = addressName.getText().toString();
+                UserAddress.city[0] = city.getText().toString();
+                UserAddress.street[0] = street.getText().toString();
+                UserAddress.build[0] = build.getText().toString();
+                UserAddress.apartment[0] = apartment.getText().toString();
+                UserAddress.postalCode[0] = postalCode.getText().toString();
+                UserAddress.addressVisibility[0] = true;
             }
         }
     }
@@ -146,6 +156,5 @@ public class UpdateAddressManager {
             apartment.setText(UserAddress.apartment[4]);
             postalCode.setText(UserAddress.postalCode[4]);
         }
-
     }
 }

@@ -7,7 +7,8 @@ public class OrderRequestDTO {
     private List<OrderItemsDTO> items;  // Список товаров в заказе
     private PaymentCardDTO card;
 
-    public OrderRequestDTO(OrdersDTO order, List<OrderItemsDTO> items, PaymentCardDTO card) {
+    public OrderRequestDTO(OrdersDTO order, List<OrderItemsDTO> items,
+                           PaymentCardDTO card) {
         this.order = order;
         this.items = items;
         this.card = card;

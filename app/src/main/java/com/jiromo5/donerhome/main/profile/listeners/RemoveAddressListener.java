@@ -20,7 +20,7 @@ public class RemoveAddressListener implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
-        Log.i("RemoveAddressListener", "Address is remove !");
+        Log.i("RemoveAddressListener", "Address is remove !!!!!!!!!!!!!!!!!!!!!!!");
         removeAddress();
         updateActivity();
     }

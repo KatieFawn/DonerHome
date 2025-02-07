@@ -1,6 +1,9 @@
 package com.jiromo5.donerhome.activities.main.shopping;
 
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -10,6 +13,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.jiromo5.donerhome.R;
+import com.jiromo5.donerhome.data.state.PaymentAddress;
 import com.jiromo5.donerhome.data.state.UserAddress;
 import com.jiromo5.donerhome.main.shopping.listeners.BackToCartListener;
 import com.jiromo5.donerhome.main.shopping.listeners.CompletePaymentListener;
@@ -63,11 +67,23 @@ public class PaymentActivity extends AppCompatActivity {
         );
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item); // Выпадающий вид
         spinner.setAdapter(adapter);
+
+        // Обработчик выбора элемента в Spinner
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                String selectedAddress = parentView.getItemAtPosition(position).toString();
+                PaymentAddress.paymentAddress = selectedAddress;
+                Log.d("Selected Address", selectedAddress);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+
+        });
     }
-
-
-
-
 
     private void eventHandler(){
         BackToCartListener backToCartListener = new BackToCartListener(this);

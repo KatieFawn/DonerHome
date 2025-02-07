@@ -1,19 +1,15 @@
 package com.jiromo5.donerhome.activities.main.shopping;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.widget.ArrayAdapter;
-import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.Spinner;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.jiromo5.donerhome.R;
-import com.jiromo5.donerhome.data.state.CartsData;
+import com.jiromo5.donerhome.data.state.PaymentAddress;
 import com.jiromo5.donerhome.data.state.PaymentCard;
 import com.jiromo5.donerhome.data.state.UserAddress;
 import com.jiromo5.donerhome.data.state.UserData;
@@ -21,7 +17,6 @@ import com.jiromo5.donerhome.main.menu.OrderDetails;
 import com.jiromo5.donerhome.main.menu.listeners.BackToMenuListener;
 import com.jiromo5.donerhome.main.shopping.PaymentManager;
 import com.jiromo5.donerhome.main.shopping.listeners.BackToCartListener;
-import com.jiromo5.donerhome.main.shopping.listeners.CompletePaymentListener;
 import com.jiromo5.donerhome.service.payment.OrderController;
 import com.jiromo5.donerhome.service.payment.OrderItemsDTO;
 import com.jiromo5.donerhome.service.payment.OrderRequestDTO;
@@ -30,7 +25,6 @@ import com.jiromo5.donerhome.service.payment.PaymentCardDTO;
 import com.jiromo5.donerhome.service.payment.RequestStatus;
 
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -107,8 +101,16 @@ public class PaymentVerificationActivity extends AppCompatActivity {
         ordersDTO.setOrderDate(Calendar.getInstance().getTime());   // Дата и время заказа
         ordersDTO.setStatus("pending");            // Статус заказа
         ordersDTO.setTotalPrice(new BigDecimal(OrderDetails.totalPrice));     // Общая стоимость заказа
-        ordersDTO.setShippingAddressId(1L);    // Ссылка на адрес доставки
         ordersDTO.setPaymentMethod("credit_card");
+
+        for (int i = 0; i < 5; i ++){
+            if (UserAddress.addressName[i].equals(PaymentAddress.paymentAddress)){
+                ordersDTO.setStreet(UserAddress.street[i]);
+                ordersDTO.setBuild(UserAddress.build[i]);
+                ordersDTO.setApartment(UserAddress.apartment[i]);
+                break;
+            }
+        }
 
         PaymentCardDTO paymentCardDTO = new PaymentCardDTO();
         paymentCardDTO.setCardNumber(PaymentCard.cardNumber);

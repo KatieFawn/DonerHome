@@ -54,7 +54,6 @@ public class AddressesActivity extends AppCompatActivity {
 
         addresses[0] = findViewById(R.id.address1);
         deleteAddress[0] = findViewById(R.id.remove_button1);
-        deleteAddress[0].setEnabled(false);
         addressName[0] = findViewById(R.id.name1);
 
         addresses[1] = findViewById(R.id.address2);
