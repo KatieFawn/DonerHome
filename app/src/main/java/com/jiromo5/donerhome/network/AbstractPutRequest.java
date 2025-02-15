@@ -2,6 +2,8 @@ package com.jiromo5.donerhome.network;
 
 import android.util.Log;
 
+import com.jiromo5.donerhome.data.dto.AuthDTO;
+
 import java.security.*;
 import java.security.cert.*;
 import java.util.Map;
@@ -89,6 +91,6 @@ public abstract class AbstractPutRequest {
      *
      * @param emitter The SingleEmitter to emit the result of the request.
      */
-    abstract public void sendRequest(SingleEmitter<Map<String, String>> emitter);
+    abstract public <T> void sendRequest(SingleEmitter<T> emitter);
 }
 

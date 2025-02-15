@@ -25,7 +25,7 @@ public class AddressPutRequest extends AbstractPutRequest {
     }
 
     @Override
-    public void sendRequest(SingleEmitter<Map<String, String>> emitter) {
+    public <T> void sendRequest(SingleEmitter<T> emitter) {
         // Create an implementation of the AuthService interface using Retrofit
         addressService = retrofit.create(AddressService.class);
 
@@ -46,7 +46,7 @@ public class AddressPutRequest extends AbstractPutRequest {
                     Log.d("AddressPutRequest", "Request from web-server: " + addressSaveStatus);
 
                     // Emit the successful response body
-                    emitter.onSuccess(responseBody);
+                    ((SingleEmitter<Map<String, String>>) emitter).onSuccess(responseBody);
                 } else {
                     // Log a warning if the email or password is invalid
                     Log.i("AddressPutRequest", "The address has not been added.");

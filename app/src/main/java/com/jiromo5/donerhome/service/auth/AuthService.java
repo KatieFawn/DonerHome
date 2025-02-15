@@ -1,7 +1,8 @@
 package com.jiromo5.donerhome.service.auth;
 
+import com.jiromo5.donerhome.data.dto.AuthDTO;
 import com.jiromo5.donerhome.data.dto.LoginData;
-import com.jiromo5.donerhome.data.dto.Tokens;
+import com.jiromo5.donerhome.data.dto.TokensDTO;
 
 import java.util.Map;
 import retrofit2.Call;
@@ -23,7 +24,7 @@ public interface AuthService {
      */
 
     @POST("/auth/login")
-    Call<Map<String, String>> authForm(@Body LoginData loginRequest);
+    Call<AuthDTO> authForm(@Body LoginData loginRequest);
 
     /**
      * Sends a POST request to the /auth/begin endpoint to validate a token.
@@ -34,5 +35,5 @@ public interface AuthService {
      */
 
     @POST("/auth/begin")
-    Call<Map<String, String>> validateToken(@Body Tokens tokens);
+    Call<Map<String, String>> validateToken(@Body TokensDTO tokens);
 }

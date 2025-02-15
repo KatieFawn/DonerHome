@@ -60,7 +60,6 @@ public class CartStorage {
             str.append(entry.getKey() + "_" + entry.getValue());
 
             result[i] = str.toString();
-            System.out.println(result[i] + " aaaaaaaaaaa");
             str.setLength(0);
             i++;
         }

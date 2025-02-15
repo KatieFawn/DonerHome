@@ -42,8 +42,6 @@ public class PaymentActivity extends AppCompatActivity {
         cartDate = findViewById(R.id.MM_YY);
         cvvCart = findViewById(R.id.CVV);
 
-
-
         eventHandler();
         configurePopupMenu();
 

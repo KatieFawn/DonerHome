@@ -3,7 +3,7 @@ package com.jiromo5.donerhome.data.dto;
 /**
  * Represents a pair of access and refresh tokens used for authentication.
  */
-public class Tokens {
+public class TokensDTO {
 
     private String accessToken;
     private String refreshToken;
@@ -11,7 +11,7 @@ public class Tokens {
     /**
      * Default constructor for Tokens.
      */
-    public Tokens() {
+    public TokensDTO() {
     }
 
     /**
@@ -20,7 +20,7 @@ public class Tokens {
      * @param accessToken The access token used for authentication.
      * @param refreshToken The refresh token used to obtain a new access token.
      */
-    public Tokens(String accessToken, String refreshToken) {
+    public TokensDTO(String accessToken, String refreshToken) {
         this.accessToken = accessToken;
         this.refreshToken = refreshToken;
     }

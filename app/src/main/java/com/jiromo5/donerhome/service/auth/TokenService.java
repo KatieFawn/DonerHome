@@ -37,6 +37,8 @@ public class TokenService implements RequestService, DisposableHandler {
      */
     public TokenService(Context context) {
         this.context = context;
+
+        tokenPutRequest = new TokenPutRequest();
     }
 
     /**

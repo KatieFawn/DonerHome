@@ -14,6 +14,7 @@ public class LoginData {
      * @param email The user's email address.
      * @param password The user's password.
      */
+
     public LoginData(String email, String password) {
         this.email = email;
         this.password = password;

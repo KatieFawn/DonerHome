@@ -4,7 +4,11 @@ import android.content.*;
 import android.util.Log;
 import com.jiromo5.donerhome.activities.main.menu.MenuActivity;
 import com.jiromo5.donerhome.common.DisposableHandler;
+import com.jiromo5.donerhome.data.dto.AuthDTO;
 import com.jiromo5.donerhome.data.dto.LoginData;
+import com.jiromo5.donerhome.data.dto.UserDataDTO;
+import com.jiromo5.donerhome.data.state.UserAddress;
+import com.jiromo5.donerhome.data.state.UserData;
 import com.jiromo5.donerhome.network.AuthFormPutRequest;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
@@ -26,7 +30,7 @@ public class LoginService implements RequestService, DisposableHandler {
     // Manages the lifecycle of network requests.
     private Disposable disposable;
     // Handles a single network response asynchronously.
-    private Single<Map<String, String>> networkDataSingle;
+    private Single<AuthDTO> networkDataSingle;
     // Provides access to application-specific resources.
     private Context context;
     // Represents the PUT request for authentication.
@@ -39,6 +43,8 @@ public class LoginService implements RequestService, DisposableHandler {
     public LoginService(Context context, LoginData loginRequest) {
         this.context = context;
         this.loginRequest = loginRequest;
+
+        authPutRequest = new AuthFormPutRequest(loginRequest);
     }
 
     /**
@@ -65,7 +71,7 @@ public class LoginService implements RequestService, DisposableHandler {
                 .delay(2, TimeUnit.SECONDS) // Delays the processing by 2 seconds.
                 .subscribe(result -> {
                     // Handles successful response.
-                    if (result.get("accessToken") != null && result.get("refreshToken") != null) {
+                    if (result.getTokens().getAccessToken() != null & result.getTokens().getRefreshToken() != null) {
                         Log.i("Sign-In", "Authorization successfully completed, welcome !");
                         replaceActivity(MenuActivity.class); // Replaces the current activity with MenuActivity.
                     } else {
@@ -99,11 +105,11 @@ public class LoginService implements RequestService, DisposableHandler {
         }
     }
 
-    public Single<Map<String, String>> getNetworkDataSingle(){
+    public Single<AuthDTO> getNetworkDataSingle(){
         return networkDataSingle;
     }
 
-    public void setNetworkDataSingle(Single<Map<String, String>> single){
+    public void setNetworkDataSingle(Single<AuthDTO> single){
         this.networkDataSingle = single;
     }
 

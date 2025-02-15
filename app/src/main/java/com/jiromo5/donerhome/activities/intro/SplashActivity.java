@@ -6,7 +6,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageView;
 import com.jiromo5.donerhome.R;
+import com.jiromo5.donerhome.data.dto.LoginData;
 import com.jiromo5.donerhome.main.shopping.CartManager;
+import com.jiromo5.donerhome.service.auth.LoginService;
 import com.jiromo5.donerhome.service.auth.TokenService;
 import com.jiromo5.donerhome.intro.SplashHandler;
 import com.jiromo5.donerhome.utils.CartStorage;
@@ -60,6 +62,8 @@ public class SplashActivity extends AppCompatActivity {
         tokenService = new TokenService(this);
         tokenService.fetchNetworkData();
         tokenService.handleUserAuthorization();
+
+
 
     }
 

@@ -1,8 +1,5 @@
 package com.jiromo5.donerhome.service.payment;
 
-import com.jiromo5.donerhome.data.dto.LoginData;
-import com.jiromo5.donerhome.data.dto.Tokens;
-
 import java.util.Map;
 
 import retrofit2.Call;

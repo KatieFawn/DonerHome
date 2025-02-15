@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.jiromo5.donerhome.R;
 import com.jiromo5.donerhome.data.state.PaymentAddress;
 import com.jiromo5.donerhome.data.state.PaymentCard;
+import com.jiromo5.donerhome.data.state.ProductsData;
 import com.jiromo5.donerhome.data.state.UserAddress;
 import com.jiromo5.donerhome.data.state.UserData;
 import com.jiromo5.donerhome.main.menu.OrderDetails;
@@ -137,7 +138,7 @@ public class PaymentVerificationActivity extends AppCompatActivity {
 
                     OrderItemsDTO orderItemsDTO = new OrderItemsDTO();
                     orderItemsDTO.setOrderId(ordersDTO.getUserId());
-                    orderItemsDTO.setProductId(1L);    // Ссылка на товар
+                    orderItemsDTO.setProductId(ProductsData.getId("Cola size S"));    // Ссылка на товар
                     orderItemsDTO.setQuantity(OrderDetails.colaSizeSOrder.get(i));      // Количество товара
                     orderItemsDTO.setPrice(new BigDecimal(priceCola * OrderDetails.colaSizeSOrder.get(i)));  // Цена товара на момент заказа
 
@@ -150,7 +151,7 @@ public class PaymentVerificationActivity extends AppCompatActivity {
 
                     OrderItemsDTO orderItemsDTO = new OrderItemsDTO();
                     orderItemsDTO.setOrderId(ordersDTO.getUserId());
-                    orderItemsDTO.setProductId(2L);    // Ссылка на товар
+                    orderItemsDTO.setProductId(ProductsData.getId("Cheeseburger"));    // Ссылка на товар
                     orderItemsDTO.setQuantity(OrderDetails.cheeseburgerOrder.get(i));      // Количество товара
                     orderItemsDTO.setPrice(new BigDecimal(priceCheeseburger * OrderDetails.cheeseburgerOrder.get(i)));  // Цена товара на момент заказа
 

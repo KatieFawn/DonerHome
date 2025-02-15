@@ -2,7 +2,7 @@ package com.jiromo5.donerhome.network;
 
 import android.util.Log;
 import com.jiromo5.donerhome.service.auth.AuthService;
-import com.jiromo5.donerhome.data.dto.Tokens;
+import com.jiromo5.donerhome.data.dto.TokensDTO;
 import com.jiromo5.donerhome.data.state.UserData;
 import com.jiromo5.donerhome.utils.TokenManager;
 import java.util.Map;
@@ -17,7 +17,7 @@ import retrofit2.*;
 public class TokenPutRequest extends AbstractPutRequest {
 
     private AuthService authService;
-    private Tokens tokens;
+    private TokensDTO tokens;
     private Map<String, String> responseBody;
 
     /**
@@ -29,12 +29,12 @@ public class TokenPutRequest extends AbstractPutRequest {
      * @param emitter The SingleEmitter used to emit the result of the request.
      */
     @Override
-    public void sendRequest(SingleEmitter<Map<String, String>> emitter) {
+    public <T> void sendRequest(SingleEmitter<T> emitter) {
         // Create an implementation of the AuthService interface using Retrofit
         authService = retrofit.create(AuthService.class);
 
         // Create a Tokens object using the stored refresh token
-        tokens = new Tokens(
+        tokens = new TokensDTO(
                 null,
                 TokenManager.getToken("refresh_token"));
 
@@ -62,7 +62,8 @@ public class TokenPutRequest extends AbstractPutRequest {
                     Log.i("TokenPutRequest", "Response: email: " + email + ", role: " + role + ", accessToken: " + accessToken);
 
                     // Emit the successful response body
-                    emitter.onSuccess(responseBody);
+                    ((SingleEmitter<Map<String, String>>) emitter).onSuccess(responseBody);
+
                 } else {
                     // Log a warning if the tokens are invalid or do not exist
                     Log.w("TokenPutRequest", "Tokens are invalid or do not exist.");

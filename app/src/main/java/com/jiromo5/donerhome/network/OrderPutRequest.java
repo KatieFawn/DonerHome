@@ -27,7 +27,7 @@ public class OrderPutRequest extends AbstractPutRequest {
     }
 
     @Override
-    public void sendRequest(SingleEmitter<Map<String, String>> emitter) {
+    public <T> void sendRequest(SingleEmitter<T> emitter) {
         // Create an implementation of the AuthService interface using Retrofit
         orderService = retrofit.create(OrderService.class);
 
@@ -48,7 +48,7 @@ public class OrderPutRequest extends AbstractPutRequest {
                     Log.d("OrderPutRequest", "Request from web-server: " + paymentStatus);
 
                     // Emit the successful response body
-                    emitter.onSuccess(responseBody);
+                    ((SingleEmitter<Map<String, String>>) emitter).onSuccess(responseBody);
                 } else {
                     // Log a warning if the email or password is invalid
                     Log.i("OrderPutRequest", "Payment was not successful !");
