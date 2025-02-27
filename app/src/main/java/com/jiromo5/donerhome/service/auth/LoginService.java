@@ -2,15 +2,12 @@ package com.jiromo5.donerhome.service.auth;
 
 import android.content.*;
 import android.util.Log;
-import com.jiromo5.donerhome.activities.main.menu.MenuActivity;
+import com.jiromo5.donerhome.activities.home.menu.MenuActivity;
 import com.jiromo5.donerhome.common.DisposableHandler;
 import com.jiromo5.donerhome.data.dto.AuthDTO;
 import com.jiromo5.donerhome.data.dto.LoginData;
-import com.jiromo5.donerhome.data.dto.UserDataDTO;
-import com.jiromo5.donerhome.data.state.UserAddress;
-import com.jiromo5.donerhome.data.state.UserData;
 import com.jiromo5.donerhome.network.AuthFormPutRequest;
-import java.util.Map;
+
 import java.util.concurrent.TimeUnit;
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.core.Single;

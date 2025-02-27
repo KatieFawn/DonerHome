@@ -27,82 +27,82 @@
         </activity>
 
         <!-- Menu activity. -->
-        <activity android:name=".activities.main.menu.MenuActivity"
+        <activity android:name=".activities.home.menu.MenuActivity"
             android:exported="true">
         </activity>
 
         <!-- Drink activity. -->
-        <activity android:name=".activities.main.menu.DrinkActivity"
+        <activity android:name=".activities.home.menu.DrinkActivity"
             android:exported="true">
         </activity>
 
         <!-- Add drink to cart activity.-->
-        <activity android:name=".activities.main.menu.AddDrinkActivity"
+        <activity android:name=".activities.home.menu.AddDrinkActivity"
             android:exported="true">
         </activity>
 
         <!-- Burger activity. -->
-        <activity android:name=".activities.main.menu.BurgerActivity"
+        <activity android:name=".activities.home.menu.BurgerActivity"
             android:exported="true">
         </activity>
 
         <!-- Add burger to cart activity. -->
-        <activity android:name=".activities.main.menu.AddBurgerActivity"
+        <activity android:name=".activities.home.menu.AddBurgerActivity"
             android:exported="true">
         </activity>
 
         <!-- Deals activity. -->
-        <activity android:name=".activities.main.deals.DealsActivity"
+        <activity android:name=".activities.home.deals.DealsActivity"
             android:exported="true">
         </activity>
 
         <!-- Cart activity. -->
-        <activity android:name=".activities.main.shopping.CartActivity"
+        <activity android:name=".activities.home.shopping.CartActivity"
             android:exported="true">
         </activity>
 
         <!-- Payment activity. -->
-        <activity android:name=".activities.main.shopping.PaymentActivity"
+        <activity android:name=".activities.home.shopping.PaymentActivity"
             android:exported="true">
         </activity>
 
         <!-- Payment verification activity. -->
-        <activity android:name=".activities.main.shopping.PaymentVerificationActivity"
+        <activity android:name=".activities.home.shopping.PaymentVerificationActivity"
             android:exported="true">
         </activity>
 
         <!-- Profile activity. -->
-        <activity android:name=".activities.main.profile.ProfileActivity"
+        <activity android:name=".activities.home.profile.ProfileActivity"
             android:exported="true">
         </activity>
 
         <!-- User info activity. -->
-        <activity android:name=".activities.main.profile.UserInfoActivity"
+        <activity android:name=".activities.home.profile.UserInfoActivity"
             android:exported="true">
         </activity>
 
         <!-- Address activity. -->
-        <activity android:name=".activities.main.profile.AddressesActivity"
+        <activity android:name=".activities.home.profile.AddressesActivity"
             android:exported="true">
         </activity>
 
         <!-- Update address activity. -->
-        <activity android:name=".activities.main.profile.UpdateAddressActivity"
+        <activity android:name=".activities.home.profile.UpdateAddressActivity"
             android:exported="true">
         </activity>
 
         <!-- Feed back activity. -->
-        <activity android:name=".activities.main.profile.FeedBackActivity"
+        <activity android:name=".activities.home.profile.FeedBackActivity"
             android:exported="true">
         </activity>
 
         <!-- Settings activity. -->
-        <activity android:name=".activities.main.profile.SettingsActivity"
+        <activity android:name=".activities.home.profile.SettingsActivity"
             android:exported="true">
         </activity>
 
         <!-- Choose language activity. -->
-        <activity android:name=".activities.main.profile.LanguageActivity"
+        <activity android:name=".activities.home.profile.LanguageActivity"
             android:exported="true">
         </activity>
 

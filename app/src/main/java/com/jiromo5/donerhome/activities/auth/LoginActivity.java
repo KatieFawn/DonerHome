@@ -5,9 +5,11 @@ import android.util.Log;
 import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
 import com.jiromo5.donerhome.R;
+import com.jiromo5.donerhome.data.state.paths.AuthResources;
 import com.jiromo5.donerhome.service.auth.BackClickListener;
 import com.jiromo5.donerhome.service.auth.LinkClickHandler;
 import com.jiromo5.donerhome.service.auth.SignInClickListener;
+import com.jiromo5.donerhome.viewmodel.ViewHandler;
 
 /**
  * LoginActivity represents the login screen of the application.
@@ -63,7 +65,7 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.login_activity);
 
         Log.i("LoginActivity", "Login activity is open !");
 
@@ -75,6 +77,8 @@ public class LoginActivity extends AppCompatActivity {
         signInButton = findViewById(R.id.loginButton);
         signUpTextView = findViewById(R.id.signUpLink);
         backButton = findViewById(R.id.back_button);
+
+        setView();
 
         setBackClickListener();
         setLinkForPassword(); // Set up the link for password recovery
@@ -124,4 +128,8 @@ public class LoginActivity extends AppCompatActivity {
         backButton.setOnClickListener(backClickListener);
     }
 
+    private void setView() {
+        ViewHandler viewHandler = new ViewHandler(this);
+        viewHandler.setImageOnScreen(findViewById(R.id.back_button), AuthResources.BACK_BUTTON);
+    }
 }

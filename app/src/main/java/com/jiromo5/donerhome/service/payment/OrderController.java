@@ -1,12 +1,8 @@
 package com.jiromo5.donerhome.service.payment;
 
-import android.content.Context;
 import android.util.Log;
 
-import com.jiromo5.donerhome.activities.main.menu.MenuActivity;
 import com.jiromo5.donerhome.common.DisposableHandler;
-import com.jiromo5.donerhome.data.dto.LoginData;
-import com.jiromo5.donerhome.network.AuthFormPutRequest;
 import com.jiromo5.donerhome.network.OrderPutRequest;
 import com.jiromo5.donerhome.service.auth.RequestService;
 

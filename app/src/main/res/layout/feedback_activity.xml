@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/feedback"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.home.profile.FeedBackActivity">
+
+    <View
+        android:id="@+id/lineView"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#C8C3C3"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintVertical_bias="0.9"/>
+
+    <ImageButton
+        android:id="@+id/home_button"
+        android:layout_width="50dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginBottom="4dp"
+        android:background="@android:color/transparent"
+        android:padding="0dp"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/deals_button"
+        app:layout_constraintHorizontal_chainStyle="spread_inside" />
+
+    <ImageButton
+        android:id="@+id/deals_button"
+        android:layout_width="50dp"
+        android:layout_height="75dp"
+        android:layout_marginBottom="4dp"
+        android:background="@android:color/transparent"
+        android:padding="0dp"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/home_button"
+        app:layout_constraintEnd_toStartOf="@id/cart_button" />
+
+    <ImageButton
+        android:id="@+id/cart_button"
+        android:layout_width="50dp"
+        android:layout_height="70dp"
+        android:layout_marginBottom="4dp"
+        android:background="@android:color/transparent"
+        android:padding="0dp"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/deals_button"
+        app:layout_constraintEnd_toStartOf="@id/profile_button" />
+
+    <ImageButton
+        android:id="@+id/profile_button"
+        android:layout_width="50dp"
+        android:layout_height="70dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="4dp"
+        android:background="@android:color/transparent"
+        android:padding="0dp"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/cart_button"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Addresses view  -->
+
+    <ImageButton
+        android:id="@+id/back_button"
+        android:layout_width="26dp"
+        android:layout_height="26dp"
+        android:background="@android:color/transparent"
+        android:padding="0dp"
+        android:scaleType="fitXY"
+        android:layout_marginTop="25dp"
+        android:layout_marginStart="25dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/welcome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="FeedBack"
+        android:layout_marginTop="50dp"
+        android:textSize="36sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:scaleType="centerInside"
+        app:layout_constraintVertical_bias="0.2"/>
+
+    <ImageButton
+        android:id="@+id/send"
+        android:layout_width="133dp"
+        android:layout_height="40dp"
+        android:background="@android:color/transparent"
+        android:padding="0dp"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.8" />
+
+
+    <!--Feed back-->
+
+    <View
+        android:id="@+id/subject_background"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        app:layout_constraintVertical_bias="0.3"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/rounded_rectangle_background"/>
+
+    <EditText
+        android:id="@+id/subject"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:hint="Subject"
+        android:maxLength="18"
+        android:background="@android:color/transparent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.3" />
+
+    <View
+        android:id="@+id/message_background"
+        android:layout_width="300dp"
+        android:layout_height="190dp"
+        app:layout_constraintVertical_bias="0.5"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/rounded_rectangle_background"/>
+
+    <EditText
+        android:id="@+id/message"
+        android:layout_width="250dp"
+        android:layout_height="180dp"
+        android:hint="Your message"
+        android:maxLength="125"
+        android:background="@android:color/transparent"
+        android:inputType="textMultiLine"
+        android:gravity="top|start"
+        android:padding="16dp"
+        android:scrollbars="vertical"
+        android:overScrollMode="always"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.5" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

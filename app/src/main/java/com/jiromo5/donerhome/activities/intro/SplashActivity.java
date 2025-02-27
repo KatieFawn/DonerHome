@@ -6,11 +6,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageView;
 import com.jiromo5.donerhome.R;
-import com.jiromo5.donerhome.data.dto.LoginData;
-import com.jiromo5.donerhome.main.shopping.CartManager;
-import com.jiromo5.donerhome.service.auth.LoginService;
+import com.jiromo5.donerhome.data.state.paths.MenuResources;
 import com.jiromo5.donerhome.service.auth.TokenService;
-import com.jiromo5.donerhome.intro.SplashHandler;
+import com.jiromo5.donerhome.viewmodel.ViewHandler;
 import com.jiromo5.donerhome.utils.CartStorage;
 import com.jiromo5.donerhome.utils.TokenManager;
 
@@ -26,7 +24,7 @@ public class SplashActivity extends AppCompatActivity {
     //Load configuration of image from activity_layout.xml.
     private ImageView imageView;
     //Handle a splash screen.
-    private SplashHandler splashHandler;
+    private ViewHandler splashHandler;
     //Manage a access to token.
     private TokenService tokenService;
 
@@ -42,22 +40,20 @@ public class SplashActivity extends AppCompatActivity {
         //Invoke constructor from super class what need to
         //initializing screen, configuration, set color and etc.
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main); //Set configuration for screen.
+        setContentView(R.layout.main_activity); //Set configuration for screen.
 
         Log.i("SplashActivity", "Splash activity is open !");
 
         imageView = findViewById(R.id.splashImage); //Set configuration of image.
 
         //Create object of class SplashHandler.
-        splashHandler = new SplashHandler(this);
+        splashHandler = new ViewHandler(this);
         //Load and draw image on screen.
-        splashHandler.setLogoOnScreen(imageView);
+        splashHandler.setImageOnScreen(imageView, MenuResources.PATH_TO_LOGO);
 
         TokenManager.createContainer(this);
         CartStorage.createContainer(this);
-        CartManager.restoreCart();
-
-        //TokenManager.saveToken("refresh_token", "SPSbUdqu6gAJngpmV_gT0s48ZMexO2XYVA89WqeuSpKKL4PRwi5g0glR_0uscCjIhgaFyKk-N4Fuc6C4KUwmlg==");
+        //CartManager.restoreCart();
 
         tokenService = new TokenService(this);
         tokenService.fetchNetworkData();
