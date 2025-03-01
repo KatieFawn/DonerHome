@@ -2,20 +2,21 @@ package com.jiromo5.donerhome.service.payment;
 
 public class PaymentCardDTO {
 
-    private String cardNumber;   // Номер карты
-    private String expiryDate;   // Дата окончания (MM/YY)
-    private String cvv;          // CVV-код
+    private String cardNumber;   // The card number (e.g., 1234 5678 9012 3456)
+    private String expiryDate;   // The card's expiry date in MM/YY format
+    private String cvv;          // The CVV code (Card Verification Value)
 
-    // Конструкторы
+    // Default constructor
     public PaymentCardDTO() {}
 
+    // Parameterized constructor
     public PaymentCardDTO(String cardNumber, String expiryDate, String cvv) {
         this.cardNumber = cardNumber;
         this.expiryDate = expiryDate;
         this.cvv = cvv;
     }
 
-    // Геттеры и сеттеры
+    // Getter and setter for card number
     public String getCardNumber() {
         return cardNumber;
     }
@@ -24,6 +25,7 @@ public class PaymentCardDTO {
         this.cardNumber = cardNumber;
     }
 
+    // Getter and setter for expiry date
     public String getExpiryDate() {
         return expiryDate;
     }
@@ -32,6 +34,7 @@ public class PaymentCardDTO {
         this.expiryDate = expiryDate;
     }
 
+    // Getter and setter for CVV
     public String getCvv() {
         return cvv;
     }
@@ -40,4 +43,5 @@ public class PaymentCardDTO {
         this.cvv = cvv;
     }
 }
+
 

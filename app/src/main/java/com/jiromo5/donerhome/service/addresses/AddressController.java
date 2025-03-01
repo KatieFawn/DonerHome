@@ -4,10 +4,7 @@ import android.util.Log;
 
 import com.jiromo5.donerhome.common.DisposableHandler;
 import com.jiromo5.donerhome.network.AddressPutRequest;
-import com.jiromo5.donerhome.network.OrderPutRequest;
 import com.jiromo5.donerhome.service.auth.RequestService;
-import com.jiromo5.donerhome.service.payment.OrderRequestDTO;
-import com.jiromo5.donerhome.service.payment.RequestStatus;
 
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
@@ -17,6 +14,12 @@ import io.reactivex.rxjava3.core.Single;
 import io.reactivex.rxjava3.disposables.Disposable;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
+/**
+ * This class handles user interactions related to the address management process.
+ * It implements the {@link RequestService} interface for fetching network data and
+ * the {@link DisposableHandler} interface for managing RxJava disposables.
+ */
+
 public class AddressController implements RequestService, DisposableHandler {
 
     private Disposable disposable;
@@ -24,13 +27,22 @@ public class AddressController implements RequestService, DisposableHandler {
     private AddressPutRequest addressPutRequest;
     private AddressDTO addressDTO;
 
-    //Баг фикс с обновлением вью и коммит.
-
+    /**
+     * Constructor that initializes the AddressController with the provided {@link AddressDTO}.
+     * It also initializes the AddressPutRequest to be used for network communication.
+     *
+     * @param addressDTO The AddressDTO containing the address data to be sent in the request.
+     */
     public AddressController(AddressDTO AddressDTO){
         this.addressDTO = AddressDTO;
         addressPutRequest = new AddressPutRequest(addressDTO);
     }
 
+    /**
+     * Initializes the network data request by creating a {@link Single} instance that will
+     * handle the address PUT request. The request is built and sent through the
+     * {@link AddressPutRequest} instance.
+     */
     @Override
     public void fetchNetworkData() {
         networkDataSingle = Single.create(emitter -> {
@@ -39,6 +51,12 @@ public class AddressController implements RequestService, DisposableHandler {
         });
     }
 
+    /**
+     * Handles the user authorization by subscribing to the network data request.
+     * The request is performed on the IO thread, and the result is observed on the main thread.
+     * A 2-second delay is added before processing the result. If the address is successfully added,
+     * a success message is logged; otherwise, an error message is logged.
+     */
     @Override
     public void handleUserAuthorization() {
         disposable = networkDataSingle
@@ -58,6 +76,9 @@ public class AddressController implements RequestService, DisposableHandler {
                 });
     }
 
+    /**
+     * Disposes the current RxJava disposable to prevent memory leaks when no longer needed.
+     */
     @Override
     public void dispose() {
         if (disposable != null && !disposable.isDisposed()) {

@@ -4,8 +4,6 @@ import android.util.Log;
 
 import com.jiromo5.donerhome.service.addresses.AddressDTO;
 import com.jiromo5.donerhome.service.addresses.AddressService;
-import com.jiromo5.donerhome.service.payment.OrderRequestDTO;
-import com.jiromo5.donerhome.service.payment.OrderService;
 
 import java.util.Map;
 
@@ -14,15 +12,36 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+/**
+ * This class handles sending a PUT request to add an address using the AddressService.
+ * It extends {@link AbstractPutRequest} and overrides the {@link sendRequest} method
+ * to make a network call for adding an address.
+ */
+
 public class AddressPutRequest extends AbstractPutRequest {
 
     private AddressService addressService;
     private AddressDTO addressDTO;
     private Map<String, String> responseBody;
 
+    /**
+     * Constructor that initializes the AddressPutRequest with the provided {@link AddressDTO}.
+     *
+     * @param addressDTO The AddressDTO containing the address data to be sent in the request.
+     */
+
     public AddressPutRequest(AddressDTO addressDTO){
         this.addressDTO = addressDTO;
     }
+
+    /**
+     * Sends the PUT request asynchronously to add an address by making a network call
+     * using the AddressService interface. The response is handled by a callback that
+     * emits the result to the provided {@link SingleEmitter}.
+     *
+     * @param emitter The {@link SingleEmitter} used to emit the response or error.
+     *                On success, the response body containing address save details will be emitted.
+     */
 
     @Override
     public <T> void sendRequest(SingleEmitter<T> emitter) {

@@ -1,6 +1,7 @@
 package com.jiromo5.donerhome.activities.home.menu;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ImageButton;
 
 import androidx.annotation.Nullable;
@@ -10,20 +11,23 @@ import com.jiromo5.donerhome.R;
 import com.jiromo5.donerhome.data.state.paths.MenuResources;
 import com.jiromo5.donerhome.viewmodel.ViewHandler;
 import com.jiromo5.donerhome.viewmodel.navigation.NavigationBarController;
-import com.jiromo5.donerhome.viewmodel.navigation.listeners.CartsClickListener;
-import com.jiromo5.donerhome.viewmodel.navigation.listeners.DealsClickListener;
-import com.jiromo5.donerhome.viewmodel.navigation.listeners.HomeClickListener;
-import com.jiromo5.donerhome.viewmodel.navigation.listeners.ProfileClickListener;
-import com.jiromo5.donerhome.viewmodel.menu.listeners.BurgerListener;
-import com.jiromo5.donerhome.viewmodel.menu.listeners.DrinkListener;
+import com.jiromo5.donerhome.viewmodel.navigation.listeners.*;
+import com.jiromo5.donerhome.viewmodel.menu.listeners.*;
+
+/**
+ * Activity for displaying the main menu with various food and drink options.
+ * Includes buttons for navigating to other parts of the app, such as the home, deals, cart, and profile sections.
+ */
 
 public class MenuActivity extends AppCompatActivity {
 
+    // Declare buttons for navigating the menu
     private ImageButton homeButton;
     private ImageButton dealsButton;
     private ImageButton cartButton;
     private ImageButton profileButton;
 
+    // Declare buttons for selecting different menu items
     private ImageButton drinkButton;
     private ImageButton burgerButton;
     private ImageButton shawarmaButton;
@@ -41,6 +45,7 @@ public class MenuActivity extends AppCompatActivity {
         setContentView(R.layout.menu_activity);
         overridePendingTransition(0, 0);
 
+        // Initialize the buttons for navigation and menu items
         homeButton = findViewById(R.id.home_button);
         dealsButton = findViewById(R.id.deals_button);
         cartButton = findViewById(R.id.cart_button);
@@ -55,14 +60,26 @@ public class MenuActivity extends AppCompatActivity {
         pizzaButton = findViewById(R.id.pizza_button);
         hotdogButton = findViewById(R.id.hotdog_button);
 
+        // Set UI elements for buttons
         setView();
+
+        // Set up navigation button listeners
         homeEventListener();
 
+        // Initialize the navigation bar controller and update button states
         navigationBarController = new NavigationBarController(homeButton, dealsButton, cartButton, profileButton);
         navigationBarController.updateButtonState(this);
+
+        Log.d("MenuActivity", "Activity created and navigation bar initialized.");
     }
 
-    private void homeEventListener(){
+    /**
+     * Sets click listeners for the navigation buttons (home, deals, cart, profile)
+     * and the menu item buttons (drink, burger, shawarma, etc.).
+     */
+
+    private void homeEventListener() {
+        // Set listeners for the navigation buttons
         HomeClickListener homeClickListener = new HomeClickListener(this);
         DealsClickListener dealsClickListener = new DealsClickListener(this);
         CartsClickListener cartsClickListener = new CartsClickListener(this);
@@ -73,12 +90,20 @@ public class MenuActivity extends AppCompatActivity {
         cartButton.setOnClickListener(cartsClickListener);
         profileButton.setOnClickListener(profileClickListener);
 
+        // Set listeners for the menu item buttons
         drinkButton.setOnClickListener(new DrinkListener(this));
         burgerButton.setOnClickListener(new BurgerListener(this));
+
+        Log.d("MenuActivity", "Button click listeners set.");
     }
 
-    private void setView(){
+    /**
+     * Sets images for the menu buttons using the ViewHandler.
+     */
+    private void setView() {
         ViewHandler viewHandler = new ViewHandler(this);
+
+        // Set images for each menu item button
         viewHandler.setImageOnScreen(drinkButton, MenuResources.DRINK_BUTTON);
         viewHandler.setImageOnScreen(burgerButton, MenuResources.BURGER_BUTTON);
         viewHandler.setImageOnScreen(shawarmaButton, MenuResources.SHAWARMA_BUTTON);
@@ -87,5 +112,7 @@ public class MenuActivity extends AppCompatActivity {
         viewHandler.setImageOnScreen(potatoButton, MenuResources.POTATO_BUTTON);
         viewHandler.setImageOnScreen(pizzaButton, MenuResources.PIZZA_BUTTON);
         viewHandler.setImageOnScreen(hotdogButton, MenuResources.HOTDOG_BUTTON);
+
+        Log.d("MenuActivity", "UI images set for menu buttons.");
     }
 }

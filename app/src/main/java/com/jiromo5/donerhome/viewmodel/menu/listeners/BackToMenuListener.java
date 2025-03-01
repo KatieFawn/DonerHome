@@ -5,38 +5,51 @@ import android.content.Intent;
 import android.view.View;
 
 import com.jiromo5.donerhome.activities.home.menu.MenuActivity;
-import com.jiromo5.donerhome.utils.CartStorage;
 
+import android.content.Context;
+import android.content.Intent;
+import android.util.Log;
+import android.view.View;
+
+import com.jiromo5.donerhome.activities.home.menu.MenuActivity;
+
+/**
+ * Listener for handling the click event to navigate back to the MenuActivity.
+ * When the user clicks the associated view, this listener will start the MenuActivity.
+ */
 public class BackToMenuListener implements View.OnClickListener {
 
     private Context context;
 
+    /**
+     * Constructor to initialize the listener with the necessary context.
+     *
+     * @param context The application context, typically the current activity.
+     */
     public BackToMenuListener(Context context){
         this.context = context;
     }
 
+    /**
+     * Called when the user clicks the associated view.
+     * It triggers the activity transition to the MenuActivity.
+     *
+     * @param view The view that was clicked.
+     */
     @Override
     public void onClick(View view) {
+        Log.d("BackToMenuListener", "Button clicked, starting MenuActivity.");
         replaceActivity();
     }
 
+    /**
+     * Initiates the transition to the MenuActivity.
+     * Starts the MenuActivity using an explicit intent.
+     */
     private void replaceActivity(){
-        //CartStorage.createContainer(context);
-        CartStorage.remove("1");
-        CartStorage.remove("2");
-        CartStorage.addProduct("0", "Cola Size S_1" );
-        CartStorage.addProduct("1", "Cheeseburger_4" );
-        String[] res = CartStorage.getAllProducts();
-        //CartStorage.remove();
-
-        for (int i = 0; i < res.length; i ++){
-            System.out.println(res[i] + " aaaaaaaaaaaaaaaaaaaa");
-        }
-
-        //CartStorage.logData();
-        //TokenManager.logData();
-        //CartStorage.testStorage();
         Intent intent = new Intent(context, MenuActivity.class);
+        Log.d("BackToMenuListener", "Intent created to start MenuActivity.");
         context.startActivity(intent);
     }
 }
+

@@ -1,10 +1,8 @@
 package com.jiromo5.donerhome.activities.home.menu;
 
 import android.os.Bundle;
-import android.widget.EditText;
-import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.TextView;
+import android.util.Log;
+import android.widget.*;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,17 +11,14 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import com.jiromo5.donerhome.R;
 import com.jiromo5.donerhome.data.state.paths.DrinkResources;
 import com.jiromo5.donerhome.viewmodel.ViewHandler;
-import com.jiromo5.donerhome.viewmodel.menu.OrderState;
-import com.jiromo5.donerhome.viewmodel.menu.ItemsDrinkManager;
-import com.jiromo5.donerhome.viewmodel.menu.ColaOrderManager;
-import com.jiromo5.donerhome.viewmodel.menu.listeners.AddOrderListener;
-import com.jiromo5.donerhome.viewmodel.menu.listeners.BackToDrinkListener;
-import com.jiromo5.donerhome.viewmodel.menu.listeners.CloseOrderMessageListener;
-import com.jiromo5.donerhome.viewmodel.menu.listeners.LargeSizeListener;
-import com.jiromo5.donerhome.viewmodel.menu.listeners.MediumSizeListener;
-import com.jiromo5.donerhome.viewmodel.menu.listeners.MinusItemListener;
-import com.jiromo5.donerhome.viewmodel.menu.listeners.PlusItemListener;
-import com.jiromo5.donerhome.viewmodel.menu.listeners.SmallSizeListener;
+import com.jiromo5.donerhome.viewmodel.menu.*;
+import com.jiromo5.donerhome.viewmodel.menu.listeners.*;
+
+/**
+ * Activity that handles the process of adding a drink (Cola) to the order.
+ * Provides functionality for selecting drink size, adjusting quantity,
+ * and adding the item to the order.
+ */
 
 public class AddDrinkActivity extends AppCompatActivity {
 
@@ -45,14 +40,18 @@ public class AddDrinkActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        // Clear any previous order state when this activity is created
         OrderState.clearState();
 
+        // Check if the Cola button was clicked to load the Cola order activity
         if (ItemsDrinkManager.isColaButtonClicked) {
             setContentView(R.layout.cola_order_activity);
             currentLayout = findViewById(R.id.drink_order);
+            Log.d("AddDrinkActivity", "Cola order activity loaded.");
         }
         overridePendingTransition(0, 0);
 
+        // Initialize UI elements
         backButton = findViewById(R.id.back_button);
         nameOfItem = findViewById(R.id.name_of_item);
         smallColaButton = findViewById(R.id.cup_size_s);
@@ -65,16 +64,23 @@ public class AddDrinkActivity extends AppCompatActivity {
         addToOrderButton = findViewById(R.id.add_to_order);
         completeOrderMessage = findViewById(R.id.complete_message);
 
+        // Initialize order manager to manage the state of the Cola order
         orderManager = new ColaOrderManager(this, smallColaButton, mediumColaButton, largeColaButton);
         orderManager.updateState();
 
+        Log.d("AddDrinkActivity", "Order manager initialized and state updated.");
+
+        // Set images and buttons for UI
         setView();
 
+        // Set click listeners for buttons
         setButtonClickListeners();
 
-        //Кнопка back - пофиксить, пофиксить сохранение состояния кнопок размера продукта.
-        //Дальше сделать кнопки добавления количества. Делаем сейв и идём к бургеру.
     }
+
+    /**
+     * Sets the click listeners for all interactive buttons in the activity.
+     */
 
     private void setButtonClickListeners(){
         backButton.setOnClickListener(new BackToDrinkListener(this));
@@ -89,7 +95,13 @@ public class AddDrinkActivity extends AppCompatActivity {
         plusCount.setOnClickListener(new PlusItemListener(countOfItem));
         addToOrderButton.setOnTouchListener(new AddOrderListener(this,completeOrderMessage, addToOrderButton));
         currentLayout.setOnTouchListener(new CloseOrderMessageListener(completeOrderMessage));
+        Log.d("AddDrinkActivity", "Button click listeners set.");
     }
+
+    /**
+     * Sets the images for the UI elements like buttons and icons.
+     * Utilizes the ViewHandler class to update the screen with appropriate images.
+     */
 
     private void setView(){
         ViewHandler viewHandler = new ViewHandler(this);
@@ -102,5 +114,7 @@ public class AddDrinkActivity extends AppCompatActivity {
         viewHandler.setImageOnScreen(findViewById(R.id.minus_item), DrinkResources.MINUS_QUANTITY_BUTTON);
         viewHandler.setImageOnScreen(findViewById(R.id.add_to_order), DrinkResources.ADD_ORDER_BUTTON);
         viewHandler.setImageOnScreen(findViewById(R.id.complete_message), DrinkResources.ORDER_MESSAGE_IMAGE);
+
+        Log.d("AddDrinkActivity", "UI images set.");
     }
 }

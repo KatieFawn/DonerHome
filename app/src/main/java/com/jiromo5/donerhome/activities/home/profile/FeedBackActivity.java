@@ -1,8 +1,8 @@
 package com.jiromo5.donerhome.activities.home.profile;
 
 import android.os.Bundle;
-import android.widget.EditText;
-import android.widget.ImageButton;
+import android.util.Log;
+import android.widget.*;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,11 +12,13 @@ import com.jiromo5.donerhome.data.state.paths.ProfileResources;
 import com.jiromo5.donerhome.service.auth.BackClickListener;
 import com.jiromo5.donerhome.viewmodel.ViewHandler;
 import com.jiromo5.donerhome.viewmodel.navigation.NavigationBarController;
-import com.jiromo5.donerhome.viewmodel.navigation.listeners.CartsClickListener;
-import com.jiromo5.donerhome.viewmodel.navigation.listeners.DealsClickListener;
-import com.jiromo5.donerhome.viewmodel.navigation.listeners.HomeClickListener;
-import com.jiromo5.donerhome.viewmodel.navigation.listeners.ProfileClickListener;
+import com.jiromo5.donerhome.viewmodel.navigation.listeners.*;
 import com.jiromo5.donerhome.viewmodel.profile.listeners.SendFeedBackListener;
+
+/**
+ * Activity for user feedback submission.
+ * Provides UI for entering feedback and navigation buttons.
+ */
 
 public class FeedBackActivity extends AppCompatActivity {
 
@@ -39,6 +41,8 @@ public class FeedBackActivity extends AppCompatActivity {
         setContentView(R.layout.feedback_activity);
         overridePendingTransition(0,0);
 
+        Log.d("FeedBackActivity", "onCreate: Initializing UI components");
+
         homeButton = findViewById(R.id.home_button);
         dealsButton = findViewById(R.id.deals_button);
         cartsButton = findViewById(R.id.cart_button);
@@ -56,7 +60,13 @@ public class FeedBackActivity extends AppCompatActivity {
         setButtonClickListeners();
     }
 
+    /**
+     * Sets up click listeners for navigation and feedback buttons.
+     */
+
     private void setButtonClickListeners(){
+        Log.d("FeedBackActivity", "setButtonClickListeners: Setting up button listeners");
+
         homeButton.setOnClickListener(new HomeClickListener(this));
         dealsButton.setOnClickListener(new DealsClickListener(this));
         cartsButton.setOnClickListener(new CartsClickListener(this));
@@ -65,6 +75,10 @@ public class FeedBackActivity extends AppCompatActivity {
         backButton.setOnClickListener(new BackClickListener(this));
         sendFeedBackButton.setOnTouchListener(new SendFeedBackListener(subject, message, this));
     }
+
+    /**
+     * Configures the UI views by setting images on buttons.
+     */
 
     private void setView(){
         ViewHandler viewHandler = new ViewHandler(this);

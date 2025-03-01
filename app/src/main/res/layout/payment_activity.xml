@@ -7,6 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".activities.home.shopping.PaymentActivity">
 
+    <!-- Back button for navigation -->
     <ImageButton
         android:id="@+id/back_button"
         android:layout_width="26dp"
@@ -19,6 +20,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
+    <!-- Title for the confirmation page -->
     <TextView
         android:id="@+id/welcome"
         android:layout_width="wrap_content"
@@ -33,6 +35,7 @@
         android:scaleType="centerInside"
         app:layout_constraintVertical_bias="0.1" />
 
+    <!-- Text to indicate where the user should select an address -->
     <TextView
         android:id="@+id/choose_address"
         android:layout_width="wrap_content"
@@ -47,6 +50,7 @@
         android:scaleType="centerInside"
         app:layout_constraintVertical_bias="0.2" />
 
+    <!-- Address template image for display -->
     <ImageView
         android:id="@+id/address_template"
         android:layout_width="wrap_content"
@@ -60,6 +64,8 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.3"/>
 
+
+    <!-- Spinner for selecting an address from a list -->
     <Spinner
         android:id="@+id/address_list"
         android:layout_width="wrap_content"
@@ -74,6 +80,7 @@
         android:scaleType="centerInside"
         app:layout_constraintVertical_bias="0.303"/>
 
+    <!-- Text to prompt the user to add the cart -->
     <TextView
         android:id="@+id/add_cart"
         android:layout_width="wrap_content"
@@ -88,6 +95,7 @@
         android:scaleType="centerInside"
         app:layout_constraintVertical_bias="0.4" />
 
+    <!-- EditText for entering cart number -->
     <EditText
         android:id="@+id/cart_number"
         android:layout_width="260dp"
@@ -101,6 +109,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintVertical_bias="0.5" />
 
+
+    <!-- EditText for entering expiration date (MM/YY) -->
     <EditText
         android:id="@+id/MM_YY"
         android:layout_width="100dp"
@@ -114,6 +124,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintVertical_bias="0.6" />
 
+    <!-- EditText for entering CVV code -->
     <EditText
         android:id="@+id/CVV"
         android:layout_width="100dp"
@@ -128,6 +139,7 @@
         app:layout_constraintVertical_bias="0.6" />
 
 
+    <!-- TextView to display the amount the user needs to pay -->
     <TextView
         android:id="@+id/amount_to_pay"
         android:layout_width="wrap_content"
@@ -144,6 +156,7 @@
         app:layout_constraintHorizontal_bias="0.3"
         app:layout_constraintVertical_bias="0.75" />
 
+    <!-- TextView to display the total price -->
     <TextView
         android:id="@+id/total_price"
         android:layout_width="wrap_content"
@@ -159,6 +172,7 @@
         app:layout_constraintHorizontal_bias="0.7"
         app:layout_constraintVertical_bias="0.755555" />
 
+    <!-- Button to complete the payment process -->
     <ImageButton
         android:id="@+id/complete_payment"
         android:layout_width="133dp"

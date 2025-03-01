@@ -7,8 +7,9 @@
     android:layout_height="match_parent"
     tools:context=".activities.home.profile.LanguageActivity">
 
-    <!-- Language view  -->
+    <!-- Language view section -->
 
+    <!-- Back button for navigation -->
     <ImageButton
         android:id="@+id/back_button"
         android:layout_width="18dp"
@@ -21,6 +22,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
+
+    <!-- Welcome text for the language selection section -->
     <TextView
         android:id="@+id/welcome"
         android:layout_width="wrap_content"
@@ -34,8 +37,8 @@
         android:scaleType="centerInside"
         app:layout_constraintVertical_bias="0.2"/>
 
-    <!-- Choose language -->
 
+    <!-- Language selection section -->
     <ScrollView
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
@@ -50,6 +53,8 @@
             android:padding="16dp"
             android:gravity="center_horizontal">
 
+
+            <!-- English language selection button -->
             <ImageButton
                 android:id="@+id/english"
                 android:layout_width="320dp"
@@ -59,6 +64,7 @@
                 android:scaleType="fitXY"
                 android:layout_marginTop="25dp"/>
 
+            <!-- German language selection button -->
             <ImageButton
                 android:id="@+id/german"
                 android:layout_width="320dp"
@@ -68,6 +74,7 @@
                 android:scaleType="fitXY"
                 android:layout_marginTop="25dp"/>
 
+            <!-- Polish language selection button -->
             <ImageButton
                 android:id="@+id/poland"
                 android:layout_width="320dp"
@@ -77,7 +84,7 @@
                 android:scaleType="fitXY"
                 android:layout_marginTop="25dp"/>
 
-            <!-- Динамическое пространство -->
+            <!-- Dynamic space for layout flexibility -->
             <Space
                 android:layout_width="match_parent"
                 android:layout_height="24dp" />

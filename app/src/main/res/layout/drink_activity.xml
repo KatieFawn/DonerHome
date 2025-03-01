@@ -9,6 +9,7 @@
     android:rotationX="0"
     tools:context=".activities.home.menu.DrinkActivity">
 
+    <!-- Line separator at the top -->
     <View
         android:id="@+id/lineView"
         android:layout_width="match_parent"
@@ -19,8 +20,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <!-- Drink view  -->
+    <!-- Drink view section -->
 
+    <!-- Button for a back to last activity -->
     <ImageButton
         android:id="@+id/back_button"
         android:layout_width="26dp"
@@ -33,6 +35,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <!-- Welcome message for the drink section -->
     <TextView
         android:id="@+id/welcome"
         android:layout_width="wrap_content"
@@ -46,7 +49,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <View
+    <!-- Welcome message for the drink section -->
+    <TextView
         android:id="@+id/line1"
         android:layout_width="match_parent"
         android:layout_height="2dp"
@@ -57,7 +61,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintVertical_bias="0.15" />
 
-    <!-- Первая кнопка -->
+    <!-- Button for a move to a soda items -->
     <ImageButton
         android:id="@+id/soda"
         android:layout_width="100dp"
@@ -71,7 +75,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.15" />
 
-    <!-- Вторая кнопка -->
+    <!-- Button for a move to a coffee items -->
     <ImageButton
         android:id="@+id/coffee"
         android:layout_width="100dp"
@@ -85,7 +89,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.15" />
 
-    <!-- Третья кнопка -->
+    <!-- Button for a move to a water items -->
     <ImageButton
         android:id="@+id/water"
         android:layout_width="100dp"
@@ -99,6 +103,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.15" />
 
+    <!-- Divider line after the selection buttons -->
     <View
         android:id="@+id/line2"
         android:layout_width="match_parent"
@@ -109,7 +114,7 @@
         app:layout_constraintTop_toBottomOf="@id/water"
         app:layout_constraintVertical_bias="0.2" />
 
-    <!-- Choose language -->
+    <!-- Choose items section -->
 
     <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/drink_list"

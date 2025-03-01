@@ -4,6 +4,13 @@ import android.widget.TextView;
 
 import com.jiromo5.donerhome.data.state.UserAddress;
 
+import android.util.Log;
+
+/**
+ * Manages the update of user address data. This includes saving new addresses,
+ * modifying existing addresses, and updating the TextView fields when a particular address
+ * is selected.
+ */
 public class UpdateAddressManager {
 
     private TextView addressName;
@@ -13,8 +20,18 @@ public class UpdateAddressManager {
     private TextView apartment;
     private TextView postalCode;
 
+    /**
+     * Constructor that initializes the address fields (TextViews).
+     *
+     * @param addressName The TextView for the address name.
+     * @param city The TextView for the city.
+     * @param street The TextView for the street.
+     * @param build The TextView for the building number.
+     * @param apartment The TextView for the apartment number.
+     * @param postalCode The TextView for the postal code.
+     */
     public UpdateAddressManager(TextView addressName, TextView city, TextView street, TextView build,
-                                TextView apartment, TextView postalCode){
+                                TextView apartment, TextView postalCode) {
         this.addressName = addressName;
         this.city = city;
         this.street = street;
@@ -23,136 +40,101 @@ public class UpdateAddressManager {
         this.postalCode = postalCode;
     }
 
-    public void saveData(){
-        //вызывается при нажатии на кнопку save.
-        newAddress();
-        changeAddress();
-    }
+    /**
+     * Saves the current address data, either by creating a new address or modifying an existing one
+     * based on the button clicked.
+     * This method will call the appropriate method depending on the button state.
+     */
+    public void saveData() {
+        Log.i("UpdateAddressManager", "saveData() called. Button number: " + AddressManager.clickedButtonNumber);
 
-    private void newAddress(){
-        if (AddressManager.clickedButtonNumber == -1){
-            if (UserAddress.addressVisibility[3]) {
-                UserAddress.addressName[4] = addressName.getText().toString();
-                UserAddress.city[4] = city.getText().toString();
-                UserAddress.street[4] = street.getText().toString();
-                UserAddress.build[4] = build.getText().toString();
-                UserAddress.apartment[4] = apartment.getText().toString();
-                UserAddress.postalCode[4] = postalCode.getText().toString();
-                UserAddress.addressVisibility[4] = true;
-            } else if (UserAddress.addressVisibility[2]) {
-                UserAddress.addressName[3] = addressName.getText().toString();
-                UserAddress.city[3] = city.getText().toString();
-                UserAddress.street[3] = street.getText().toString();
-                UserAddress.build[3] = build.getText().toString();
-                UserAddress.apartment[3] = apartment.getText().toString();
-                UserAddress.postalCode[3] = postalCode.getText().toString();
-                UserAddress.addressVisibility[3] = true;
-            } else if (UserAddress.addressVisibility[1]) {
-                UserAddress.addressName[2] = addressName.getText().toString();
-                UserAddress.city[2] = city.getText().toString();
-                UserAddress.street[2] = street.getText().toString();
-                UserAddress.build[2] = build.getText().toString();
-                UserAddress.apartment[2] = apartment.getText().toString();
-                UserAddress.postalCode[2] = postalCode.getText().toString();
-                UserAddress.addressVisibility[2] = true;
-            } else if (UserAddress.addressVisibility[0]) {
-                UserAddress.addressName[1] = addressName.getText().toString();
-                UserAddress.city[1] = city.getText().toString();
-                UserAddress.street[1] = street.getText().toString();
-                UserAddress.build[1] = build.getText().toString();
-                UserAddress.apartment[1] = apartment.getText().toString();
-                UserAddress.postalCode[1] = postalCode.getText().toString();
-                UserAddress.addressVisibility[1] = true;
-            } else {
-                UserAddress.addressName[0] = addressName.getText().toString();
-                UserAddress.city[0] = city.getText().toString();
-                UserAddress.street[0] = street.getText().toString();
-                UserAddress.build[0] = build.getText().toString();
-                UserAddress.apartment[0] = apartment.getText().toString();
-                UserAddress.postalCode[0] = postalCode.getText().toString();
-                UserAddress.addressVisibility[0] = true;
-            }
+        if (AddressManager.clickedButtonNumber == -1) {
+            // No button has been clicked yet, so add a new address
+            setNewAddress();
+        } else {
+            // Modify an existing address
+            setChangeAddress();
         }
     }
 
-    private void changeAddress(){
-        if (AddressManager.clickedButtonNumber != -1) {
-            if (AddressManager.clickedButtonNumber == 0) {
-                UserAddress.addressName[0] = addressName.getText().toString();
-                UserAddress.city[0] = city.getText().toString();
-                UserAddress.street[0] = street.getText().toString();
-                UserAddress.build[0] = build.getText().toString();
-                UserAddress.apartment[0] = apartment.getText().toString();
-                UserAddress.postalCode[0] = postalCode.getText().toString();
-            } else if (AddressManager.clickedButtonNumber == 1){
-                UserAddress.addressName[1] = addressName.getText().toString();
-                UserAddress.city[1] = city.getText().toString();
-                UserAddress.street[1] = street.getText().toString();
-                UserAddress.build[1] = build.getText().toString();
-                UserAddress.apartment[1] = apartment.getText().toString();
-                UserAddress.postalCode[1] = postalCode.getText().toString();
-            } else if (AddressManager.clickedButtonNumber == 2){
-                UserAddress.addressName[2] = addressName.getText().toString();
-                UserAddress.city[2] = city.getText().toString();
-                UserAddress.street[2] = street.getText().toString();
-                UserAddress.build[2] = build.getText().toString();
-                UserAddress.apartment[2] = apartment.getText().toString();
-                UserAddress.postalCode[2] = postalCode.getText().toString();
-            } else if (AddressManager.clickedButtonNumber == 3){
-                UserAddress.addressName[3] = addressName.getText().toString();
-                UserAddress.city[3] = city.getText().toString();
-                UserAddress.street[3] = street.getText().toString();
-                UserAddress.build[3] = build.getText().toString();
-                UserAddress.apartment[3] = apartment.getText().toString();
-                UserAddress.postalCode[3] = postalCode.getText().toString();
-            } else if (AddressManager.clickedButtonNumber == 4){
-                UserAddress.addressName[4] = addressName.getText().toString();
-                UserAddress.city[4] = city.getText().toString();
-                UserAddress.street[4] = street.getText().toString();
-                UserAddress.build[4] = build.getText().toString();
-                UserAddress.apartment[4] = apartment.getText().toString();
-                UserAddress.postalCode[4] = postalCode.getText().toString();
-            }
+    /**
+     * Sets a new address in the first available slot in the UserAddress array.
+     * This checks for the first slot with a visibility flag set to false and updates it.
+     */
+    private void setNewAddress() {
+        int index = getAvailableAddressIndex();
+
+        if (index != -1) {
+            Log.i("UpdateAddressManager", "New address slot found at index: " + index);
+            updateAddressData(index);
+            UserAddress.addressVisibility[index] = true;
+        } else {
+            Log.w("UpdateAddressManager", "No available address slot for a new address.");
         }
     }
 
-    public void updateData(){
-        // вызывается при нажатии на активное поле
-        if (AddressManager.clickedButtonNumber == 0){
-            addressName.setText(UserAddress.addressName[0]);
-            city.setText(UserAddress.city[0]);
-            street.setText(UserAddress.street[0]);
-            build.setText(UserAddress.build[0]);
-            apartment.setText(UserAddress.apartment[0]);
-            postalCode.setText(UserAddress.postalCode[0]);
-        } else if (AddressManager.clickedButtonNumber == 1){
-            addressName.setText(UserAddress.addressName[1]);
-            city.setText(UserAddress.city[1]);
-            street.setText(UserAddress.street[1]);
-            build.setText(UserAddress.build[1]);
-            apartment.setText(UserAddress.apartment[1]);
-            postalCode.setText(UserAddress.postalCode[1]);
-        } else if (AddressManager.clickedButtonNumber == 2){
-            addressName.setText(UserAddress.addressName[2]);
-            city.setText(UserAddress.city[2]);
-            street.setText(UserAddress.street[2]);
-            build.setText(UserAddress.build[2]);
-            apartment.setText(UserAddress.apartment[2]);
-            postalCode.setText(UserAddress.postalCode[2]);
-        } else if (AddressManager.clickedButtonNumber == 3){
-            addressName.setText(UserAddress.addressName[0]);
-            city.setText(UserAddress.city[3]);
-            street.setText(UserAddress.street[3]);
-            build.setText(UserAddress.build[3]);
-            apartment.setText(UserAddress.apartment[3]);
-            postalCode.setText(UserAddress.postalCode[3]);
-        } else if (AddressManager.clickedButtonNumber == 4){
-            addressName.setText(UserAddress.addressName[4]);
-            city.setText(UserAddress.city[4]);
-            street.setText(UserAddress.street[4]);
-            build.setText(UserAddress.build[4]);
-            apartment.setText(UserAddress.apartment[4]);
-            postalCode.setText(UserAddress.postalCode[4]);
+    /**
+     * Modifies an existing address based on the clicked button number.
+     * The button number indicates which address should be updated.
+     */
+    private void setChangeAddress() {
+        int buttonIndex = AddressManager.clickedButtonNumber;
+
+        if (buttonIndex != -1) {
+            Log.i("UpdateAddressManager", "Changing address at index: " + buttonIndex);
+            updateAddressData(buttonIndex);
+        } else {
+            Log.e("UpdateAddressManager", "Invalid button index. Unable to change address.");
+        }
+    }
+
+    /**
+     * Updates the address data at a given index in the UserAddress array.
+     *
+     * @param index The index where the address data should be updated.
+     */
+    private void updateAddressData(int index) {
+        Log.d("UpdateAddressManager", "Updating address data at index: " + index);
+        UserAddress.addressName[index] = addressName.getText().toString();
+        UserAddress.city[index] = city.getText().toString();
+        UserAddress.street[index] = street.getText().toString();
+        UserAddress.build[index] = build.getText().toString();
+        UserAddress.apartment[index] = apartment.getText().toString();
+        UserAddress.postalCode[index] = postalCode.getText().toString();
+    }
+
+    /**
+     * Searches for the first available slot in the UserAddress array where an address can be added.
+     *
+     * @return The index of the available slot, or -1 if no slots are available.
+     */
+    private int getAvailableAddressIndex() {
+        for (int i = 0; i < UserAddress.addressVisibility.length; i++) {
+            if (!UserAddress.addressVisibility[i]) {
+                return i;
+            }
+        }
+        return -1; // No available slots
+    }
+
+    /**
+     * Updates the TextViews with the current address data for the selected address.
+     * This method will populate the TextViews based on the clicked address index.
+     */
+    public void updateData() {
+        int index = AddressManager.clickedButtonNumber;
+
+        if (index != -1) {
+            Log.i("UpdateAddressManager", "Updating data for address at index: " + index);
+            addressName.setText(UserAddress.addressName[index]);
+            city.setText(UserAddress.city[index]);
+            street.setText(UserAddress.street[index]);
+            build.setText(UserAddress.build[index]);
+            apartment.setText(UserAddress.apartment[index]);
+            postalCode.setText(UserAddress.postalCode[index]);
+        } else {
+            Log.e("UpdateAddressManager", "Invalid button index for updating data.");
         }
     }
 }
+

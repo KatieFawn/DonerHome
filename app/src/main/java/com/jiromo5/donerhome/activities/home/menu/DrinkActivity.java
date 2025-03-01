@@ -1,9 +1,8 @@
 package com.jiromo5.donerhome.activities.home.menu;
 
 import android.os.Bundle;
-import android.widget.ImageButton;
-import android.widget.ScrollView;
-import android.widget.TextView;
+import android.util.Log;
+import android.widget.*;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,11 +11,13 @@ import com.jiromo5.donerhome.R;
 import com.jiromo5.donerhome.data.state.paths.DrinkResources;
 import com.jiromo5.donerhome.viewmodel.ViewHandler;
 import com.jiromo5.donerhome.viewmodel.menu.DrinkScrollManager;
-import com.jiromo5.donerhome.viewmodel.menu.listeners.BackToMenuListener;
-import com.jiromo5.donerhome.viewmodel.menu.listeners.CoffeeScrollListener;
-import com.jiromo5.donerhome.viewmodel.menu.listeners.SelectColaListener;
-import com.jiromo5.donerhome.viewmodel.menu.listeners.SodaScrollListener;
-import com.jiromo5.donerhome.viewmodel.menu.listeners.WaterScrollListener;
+import com.jiromo5.donerhome.viewmodel.menu.listeners.*;
+
+/**
+ * Activity where the user can select a drink item from the menu.
+ * Provides functionality to navigate back to the menu, scroll through categories,
+ * and select a specific drink item.
+ */
 
 public class DrinkActivity extends AppCompatActivity {
 
@@ -42,8 +43,11 @@ public class DrinkActivity extends AppCompatActivity {
         setContentView(R.layout.drink_activity);
         overridePendingTransition(0, 0);
 
+        // Initialize selected item as null when the activity is created
         selectedItem = null;
+        Log.d("DrinkActivity", "Activity created. Selected item is null.");
 
+        // Initialize UI elements
         backButton = findViewById(R.id.back_button);
         sodaButton = findViewById(R.id.soda);
         coffeeButton = findViewById(R.id.coffee);
@@ -54,25 +58,44 @@ public class DrinkActivity extends AppCompatActivity {
         waterView = findViewById(R.id.water_category);
         colaButton = findViewById(R.id.cola);
 
+        // Initialize the DrinkScrollManager and update the state
         drinkScrollManager = new DrinkScrollManager(sodaButton, coffeeButton, waterButton);
         drinkScrollManager.updateState(this);
+        Log.d("DrinkActivity", "DrinkScrollManager initialized and state updated.");
 
+        // Set UI images
         setView();
 
+        // Set button click listeners
         setButtonClickListeners();
     }
 
+    /**
+     * Sets the click listeners for the back button and the drink buttons (soda, coffee, water, cola).
+     */
+
     private void setButtonClickListeners(){
+        // Listener for back button to navigate back to the menu
         backButton.setOnClickListener(new BackToMenuListener(this));
+        // Listeners for each category button to scroll to corresponding category
         sodaButton.setOnClickListener(new SodaScrollListener(this, sodaView, scrollView, sodaButton, coffeeButton, waterButton));
         coffeeButton.setOnClickListener(new CoffeeScrollListener(this, coffeeView, scrollView, sodaButton, coffeeButton, waterButton));
         waterButton.setOnClickListener(new WaterScrollListener(this, waterView, scrollView, sodaButton, coffeeButton, waterButton));
 
+        // Listener for the cola button to select cola
         colaButton.setOnClickListener(new SelectColaListener(this));
+
+        Log.d("DrinkActivity", "Button click listeners set.");
     }
 
-    private void setView(){
+    /**
+     * Sets the images for the UI elements like buttons and icons.
+     * Utilizes the ViewHandler class to update the screen with appropriate images.
+     */
+    private void setView() {
         ViewHandler viewHandler = new ViewHandler(this);
+
+        // Set images for the drink options
         viewHandler.setImageOnScreen(findViewById(R.id.back_button), DrinkResources.BACK_BUTTON);
         viewHandler.setImageOnScreen(findViewById(R.id.cola), DrinkResources.COLA_PRICE);
         viewHandler.setImageOnScreen(findViewById(R.id.fanta), DrinkResources.FANTA_PRICE);
@@ -81,5 +104,7 @@ public class DrinkActivity extends AppCompatActivity {
         viewHandler.setImageOnScreen(findViewById(R.id.espresso), DrinkResources.ESPRESSO_PRICE);
         viewHandler.setImageOnScreen(findViewById(R.id.still_water), DrinkResources.STILL_WATER_PRICE);
         viewHandler.setImageOnScreen(findViewById(R.id.soda_water), DrinkResources.SODA_WATER_PRICE);
+
+        Log.d("DrinkActivity", "UI images set.");
     }
 }

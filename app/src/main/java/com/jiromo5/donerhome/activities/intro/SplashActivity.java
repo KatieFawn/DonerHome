@@ -11,6 +11,7 @@ import com.jiromo5.donerhome.service.auth.TokenService;
 import com.jiromo5.donerhome.viewmodel.ViewHandler;
 import com.jiromo5.donerhome.utils.CartStorage;
 import com.jiromo5.donerhome.utils.TokenManager;
+import com.jiromo5.donerhome.viewmodel.shopping.CartManager;
 
 /**
  * SplashActivity is an android activity that displays a splash screen
@@ -53,14 +54,11 @@ public class SplashActivity extends AppCompatActivity {
 
         TokenManager.createContainer(this);
         CartStorage.createContainer(this);
-        //CartManager.restoreCart();
+        CartManager.restoreCart();
 
         tokenService = new TokenService(this);
         tokenService.fetchNetworkData();
         tokenService.handleUserAuthorization();
-
-
-
     }
 
     /**

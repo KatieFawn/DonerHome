@@ -2,12 +2,8 @@ package com.jiromo5.donerhome.network;
 
 import android.util.Log;
 
-import com.jiromo5.donerhome.data.dto.LoginData;
-import com.jiromo5.donerhome.service.auth.AuthService;
 import com.jiromo5.donerhome.service.payment.OrderRequestDTO;
 import com.jiromo5.donerhome.service.payment.OrderService;
-import com.jiromo5.donerhome.service.payment.OrdersDTO;
-import com.jiromo5.donerhome.utils.TokenManager;
 
 import java.util.Map;
 
@@ -16,15 +12,34 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+/**
+ * This class handles sending a PUT request to create an order using the OrderService.
+ * It extends {@link AbstractPutRequest} and overrides the {@link sendRequest} method
+ * to make a network call for creating an order.
+ */
 public class OrderPutRequest extends AbstractPutRequest {
 
     private OrderService orderService;
     private OrderRequestDTO orderRequestDTO;
     private Map<String, String> responseBody;
 
+    /**
+     * Constructor that initializes the OrderPutRequest with the provided {@link OrderRequestDTO}.
+     *
+     * @param orderRequestDTO The OrderRequestDTO containing the order data to be sent in the request.
+     */
     public OrderPutRequest(OrderRequestDTO orderRequestDTO){
         this.orderRequestDTO = orderRequestDTO;
     }
+
+    /**
+     * Sends the PUT request asynchronously to create an order by making a network call
+     * using the OrderService interface. The response is handled by a callback that
+     * emits the result to the provided {@link SingleEmitter}.
+     *
+     * @param emitter The {@link SingleEmitter} used to emit the response or error.
+     *                On success, the response body containing payment status will be emitted.
+     */
 
     @Override
     public <T> void sendRequest(SingleEmitter<T> emitter) {

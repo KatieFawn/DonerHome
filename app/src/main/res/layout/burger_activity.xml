@@ -7,6 +7,8 @@
     android:layout_height="match_parent"
     tools:context=".activities.home.menu.BurgerActivity">
 
+
+    <!-- Line View -->
     <View
         android:id="@+id/lineView"
         android:layout_width="match_parent"
@@ -17,8 +19,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- Drink view  -->
-
+    <!-- Back Button -->
     <ImageButton
         android:id="@+id/back_button"
         android:layout_width="26dp"
@@ -31,6 +32,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
+    <!-- Welcome Text -->
     <TextView
         android:id="@+id/welcome"
         android:layout_width="wrap_content"
@@ -44,6 +46,7 @@
         android:scaleType="centerInside"
         android:textStyle="bold"/>
 
+    <!-- Line 1 -->
     <View
         android:id="@+id/line1"
         android:layout_width="match_parent"
@@ -70,6 +73,7 @@
             android:padding="16dp"
             android:gravity="center_horizontal">
 
+            <!-- Logo Text -->
             <TextView
                 android:id="@+id/logo"
                 android:layout_width="wrap_content"
@@ -79,8 +83,7 @@
                 android:textSize="28sp"
                 android:textStyle="bold"/>
 
-            <!-- Burgers -->
-
+            <!-- Cheeseburger Button -->
             <ImageButton
                 android:id="@+id/cheeseburger"
                 android:layout_width="320dp"
@@ -90,6 +93,7 @@
                 android:scaleType="fitXY"
                 android:layout_marginTop="20dp"/>
 
+            <!-- Double Cheeseburger Button -->
             <ImageButton
                 android:id="@+id/double_cheeseburger"
                 android:layout_width="320dp"
@@ -99,6 +103,7 @@
                 android:scaleType="fitXY"
                 android:layout_marginTop="20dp"/>
 
+            <!-- Hamburger Button -->
             <ImageButton
                 android:id="@+id/hamburger"
                 android:layout_width="320dp"
@@ -108,6 +113,7 @@
                 android:scaleType="fitXY"
                 android:layout_marginTop="20dp"/>
 
+            <!-- King Burger Button -->
             <ImageButton
                 android:id="@+id/king_burger"
                 android:layout_width="320dp"
@@ -117,7 +123,7 @@
                 android:scaleType="fitXY"
                 android:layout_marginTop="20dp"/>
 
-            <!-- Динамическое пространство -->
+            <!-- Dynamic Space -->
             <Space
                 android:layout_width="match_parent"
                 android:layout_height="24dp" />

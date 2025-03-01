@@ -7,6 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".activities.home.profile.FeedBackActivity">
 
+    <!-- Line separator at the top -->
     <View
         android:id="@+id/lineView"
         android:layout_width="match_parent"
@@ -18,6 +19,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintVertical_bias="0.9"/>
 
+
+    <!-- Home button -->
     <ImageButton
         android:id="@+id/home_button"
         android:layout_width="50dp"
@@ -32,6 +35,7 @@
         app:layout_constraintEnd_toStartOf="@id/deals_button"
         app:layout_constraintHorizontal_chainStyle="spread_inside" />
 
+    <!-- Deals button -->
     <ImageButton
         android:id="@+id/deals_button"
         android:layout_width="50dp"
@@ -44,6 +48,7 @@
         app:layout_constraintStart_toEndOf="@id/home_button"
         app:layout_constraintEnd_toStartOf="@id/cart_button" />
 
+    <!-- Cart button -->
     <ImageButton
         android:id="@+id/cart_button"
         android:layout_width="50dp"
@@ -56,6 +61,7 @@
         app:layout_constraintStart_toEndOf="@id/deals_button"
         app:layout_constraintEnd_toStartOf="@id/profile_button" />
 
+    <!-- Profile button -->
     <ImageButton
         android:id="@+id/profile_button"
         android:layout_width="50dp"
@@ -69,8 +75,9 @@
         app:layout_constraintStart_toEndOf="@id/cart_button"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- Addresses view  -->
+    <!-- Feedback view  -->
 
+    <!-- Button for move to a last activity -->
     <ImageButton
         android:id="@+id/back_button"
         android:layout_width="26dp"
@@ -83,6 +90,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
+
+    <!-- Welcome text for the feedback section -->
     <TextView
         android:id="@+id/welcome"
         android:layout_width="wrap_content"
@@ -96,6 +105,7 @@
         android:scaleType="centerInside"
         app:layout_constraintVertical_bias="0.2"/>
 
+    <!-- Send message button -->
     <ImageButton
         android:id="@+id/send"
         android:layout_width="133dp"
@@ -112,6 +122,7 @@
 
     <!--Feed back-->
 
+    <!-- Subject background view -->
     <View
         android:id="@+id/subject_background"
         android:layout_width="250dp"
@@ -123,6 +134,7 @@
         app:layout_constraintTop_toTopOf="parent"
         android:background="@drawable/rounded_rectangle_background"/>
 
+    <!-- Subject input field -->
     <EditText
         android:id="@+id/subject"
         android:layout_width="200dp"
@@ -136,6 +148,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintVertical_bias="0.3" />
 
+    <!-- Message background view -->
     <View
         android:id="@+id/message_background"
         android:layout_width="300dp"
@@ -147,6 +160,7 @@
         app:layout_constraintTop_toTopOf="parent"
         android:background="@drawable/rounded_rectangle_background"/>
 
+    <!-- Message input field -->
     <EditText
         android:id="@+id/message"
         android:layout_width="250dp"
